@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilosmobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="estilos.css" media="screen and (min-width: 768px)">
+    <title>Home | CTRL</title>
+    <script src="/trocarlinguagem.js" defer></script>
+    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+</head>
+<body>
+    <header class="navegacao">
+        <ul>
+            <li><img width="40" height="40" src="/window.png" alt="Logo provisória"></li>
+            <li><a class="Home" href="/index.html">Home</a></li>
+            <li><a class="Projetos" href="/projetos.html">Projetos</a></li>
+            <li><a href="/sobre.html">Sobre</a></li>
+            <li><a class="FAQs" href="/faqs.html">FAQs</a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login" href="/login.html">Login</a></li>
+            <li><a class="Registro" href="/registro.html">Registrar-se</a></li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario">
+                    <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                </button>
+                <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/configuracoes">Configurações</button></li>
+                    <li><button id="sairPerfil">Sair</button></li>
+                </ul> 
+            </li>
+            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/modoescuro" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
+            <script src="/trocalinguagem" nonce="batatinha"></script>
+        </ul>
+        </header>
+    <!-- <div class="metadedaesquerda">
+         <div class="controlepinos">
+            <ul class="controlepinosdefato">
+                <li><input data-pino= "3" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "4" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "5" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "6" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "7" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "8" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "9" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "10" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "11" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "12" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+                <li><input data-pino= "13" width="40" height="40" type="image" src="/UMPOINO.png" /></li>
+            </ul>
+            <script src="/chamadapinos.js" nonce="batatinha"></script> 
+        </div>
+        <div class="butoes">
+        <button id="butaoligaled">Acende o LED</button>
+            <script src="/funcaobutaoliga.js" nonce="batatinha" defer></script>
+        <button id="butaodesligaled">Desliga o LED</button>
+            <script src="/funcaobutaodesliga.js" nonce="batatinha" defer></script>
+        </div>
+        <h2>Estado do LED: <span id="statusled"></span></h2>
+        <div class="slidersdecontrole">
+        <div class="sliderPWM">
+            <input type="range" min="0" max="255" value="0" class="slider" id="sliderPWM">
+                <script src="/valorslider.js" nonce="batatinha"></script>
+            <p id="valordoPWM">Valor: <span id="valorPWM"></span></p>
+        </div> 
+        <div class="sliderPWMmotor">
+            <input type="range" min="0" max="180" value="0" class="slider" id="sliderPWM2">
+            <script src="/valorslidermotor.js" nonce="batatinha"></script>
+            <p id="valordoPWM2">Valor: <span id="valorPWM2"></span></p>
+        </div>
+        </div>
+        <div class="Camfeedback">
+     Stream binario acabou crashando o backend <img width="640" height="480" src="http://45.239.246.197:10100/camera" id="camArduino"> 
+        </div> -->
+    </div>
+    <script nonce="batatinha">
+        /*function imagemErro() {
+                const caminhoImagemErro = "/cameraoff1.png";
+                const imagem = document.getElementById('camArduino');
+                fetch("http://45.239.246.197:10100/camera")
+                .then(response => {
+                    if (!response.ok) {
+                        imagem.src = caminhoImagemErro;
+                    }
+                })
+                .catch(error => {
+                    imagem.src = caminhoImagemErro;
+                });
+        }
+        imagemErro();*/
+        let estadoled = false;
+        let angulo = 0;
+        function atualizaEstado() {
+            const statusled2 = document.getElementById('statusled');
+            const textoEstado = estadoled ? 'Ligado' : 'Desligado';
+            statusled2.textContent = textoEstado;
+        }
+        async function Enviaestado(acao) {
+            try {
+                const resposta = await fetch(`http://45.239.246.197:10100/${acao}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ estadoled }),
+                });
+                if (!resposta.ok) {
+                    console.error(`Erro ao enviar ação ${acao}`);
+                }
+            } 
+            catch (error) {
+                console.error('Erro na rede', error);
+            }
+        }
+        async function EnvioGenerico(argumento, angulacao) {
+            try {
+                const respostaservo = await fetch(`http://45.239.246.197:10100/${argumento}/${angulacao}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (!respostaservo.ok && argumento == 'to') {
+                    console.error(`Erro ao enviar o ângulo ${angulacao}`);
+                }
+            }
+            catch (error) {
+                console.error('Erro na rede', error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F6F6;
+    overflow-y: auto;
+  }
+  /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
+  
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    padding: 8px 8px; 
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  #secaoUsuario {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px; 
+  }
+  #secaoUsuario img {
+    border-radius: 10px;
+    margin-right: 5px;
+    height: 40px; 
+  }
+  #nomeUsuarioBarra {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    color: #ddd;
+    text-align: center;
+    margin: 0;
+    line-height: 40px;
+  }
+/*AAAAAAAAAAAAAAAAA ----------------*/
+
+  .conteudo {
+    display: grid;
+    height: 100%;
+    grid-template-columns: max-content 1fr;
+    /*grid-gap: 20px;*/
+    grid-template-rows: auto auto auto;
+    margin-top: 95px;
+    margin-bottom: 1px;
+  }
+  .wrapperImagem {
+    padding: 20px;
+    max-width: 480px;
+    
+  }
+  .texto {
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  .imagemSobre {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #333;
+  }
+  .wrapperTexto {
+   grid-column: 2;
+   padding: 15px; 
+  }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Envio | CTRL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estiloConfiguracoesMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="/estiloConfiguracoes.css" media="screen and (min-width: 768px)">
+    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+</head>
+<body>
+    <div class="navegacao">
+        <ul>
+            <li><img width="40" height="40" src="/window.png" alt="Logo provisória" id="logo"></li>
+            <li><a class="Home" href="/index">Home</a></li>
+            <li><a class="Projetos" href="/projetos">Projetos</a></li>
+            <li id="sobre"><a href="/sobre" >Sobre</a></li>
+            <li id="faqs"><a class="FAQs" href="/faqs">FAQs</a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login" href="/login">Login</a></li>
+            <li><a class="Registro" href="/registro">Registrar-se</a></li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario">
+                    <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                </button>
+                <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/configuracoes">Configurações</button></li>
+                    <li><button id="sairPerfil">Sair</button></li>
+                </ul> 
+            </li>
+            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/modoescuro" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
+            <script src="/trocarlinguagem.js" nonce="batatinha"></script>
+        </ul>
+    </div>
+    <div class="wrapperConteudo">
+        <div class="conteudo">
+            <div class="colunaEsquerda">
+                <ul class="elementosColuna">
+                    <h1>Configurações</h1>
+                    <li>Perfil público</li>
+                    <li>Informações gerais</li>
+                    <li>Segurança & login</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="paginaMain">
+                <div class="banner"><img src="https://picsum.photos/1000/200.jpg"></div>
+                <img src="/usuarioPadrao.png" height="130px" alt="Imagem de perfil"id="imagemPerfil"><span id="nomeUsuarioPerfil">Nome </span>
+                <div class="forms">
+                    <span>Nome: </span><input>
+                    <span>Data de nascimento: </span><input><br></br>
+                    <span>E-mail: </span><input>
+                    <span>Telefone: </span><input>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

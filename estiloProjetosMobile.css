@@ -1,0 +1,236 @@
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: auto;
+    width: auto;
+  }
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px; 
+    height: 35px;
+    overflow: hidden;
+  }
+  #faqs, #sobre {
+    visibility: hidden;
+  }
+  .ElementosDireita {
+    visibility: hidden;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 4px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 15px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  #Dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    transition: top 0.2s ease-in-out;
+  }
+  .menuUsuario #Dropdown li {
+    padding: 12px;
+  }
+  .menuUsuario #Dropdown li button {
+    color: #ddd;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 21px; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  .menuUsuario #Dropdown li button:hover {
+    background-color: rgb(117, 116, 116);
+  }
+  /* -----------------------------------------*/
+
+  #secaoUsuario {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px; 
+  }
+  #secaoUsuario img {
+    border-radius: 10px;
+    margin-right: 5px;
+    height: 40px; 
+  }
+  #nomeUsuarioBarra {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    color: #ddd;
+    text-align: center;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .conteudo {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: 240px auto auto;
+    margin-bottom: 1px;
+  }
+  .colunaEsquerda {
+    width: 170px;
+    background-color: #B3B3B3;
+    padding: 0;
+    outline: 1px solid #333;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+    grid-row: 1 / span 3;
+  }
+  .conteudosColuna p {
+    margin: 0;
+    height: 100%
+  }
+  .conteudosColuna a {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    display: block;
+    color: #333;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    grid-row: 1 / span 3;
+  }
+  .conteudosColuna {
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    grid-row: 1 / span 3;
+  }
+  .wrapperPaginaInicio {
+    width: auto;
+    background-color: #F6F6F6;
+    padding: 20px;
+    margin-left: 1px;
+    outline: 1px solid #333;
+    height: 200px;
+    position: relative;
+  }
+  .upload {
+    visibility: hidden;
+    display: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #F6F6F6; /* Mesma cor de fundo do wrapperPaginaInicio */
+    padding: 20px;
+    outline: 1px solid #333;
+    grid-column: 3;
+    grid-row: 1; 
+  }
+  .ListaProjetos {
+    grid-column: 2 / span 2;
+    grid-row: 2 / 4;
+    background-color: #cfcfcf;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    margin-top: 1px;
+    margin-left: 1px;
+    outline: 1px solid #333;
+  }
+  .wrapperEnvio {
+    display: flex;
+    height: 100%;
+    margin-top: 20px;
+    align-items: center;
+  }
+  .upload h2 {
+    top: 0;
+    margin-top: 90px;
+    font-family: 'Roboto', sans-serif;  
+    position: absolute;
+    font-size: 20px;
+  }
+  .upload label {
+    display: inline-block;  
+    margin-bottom: 2px;
+  }
+  .upload input { 
+    height: 20px;
+    text-align: justify;
+  }
+
+  .upload button {
+    background-color: #333;
+    color: #fff; 
+    border: transparent;
+    border-radius: 7px;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+/* INÍCIO GRID LISTA ----------------------------------------------------*/
+
+  .gridLista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 0; 
+    list-style-type: none;
+  }
+  .gridLista li {
+    padding: 10px;
+    min-height: 30vh;
+    background-color: #ebebeb;
+    border: 1px solid #333;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .gridLista li a {
+    text-decoration: none;
+  }
+  .gridLista li img {
+    max-width: 100%;
+    border-radius: 10px;
+    height: 250px;
+  }

@@ -1,0 +1,48 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+  }
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    padding: 8px 8px; 
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  

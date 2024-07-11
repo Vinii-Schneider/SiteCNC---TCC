@@ -1,0 +1,146 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F6F6;
+    overflow-y: auto;
+  }
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    padding: 8px 8px;
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px;
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a,
+  .menuUsuario #Dropdown li button {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: color 0.5s, background-color 0.3s;
+  }
+  .navegacao a:hover,
+  .menuUsuario #Dropdown li button:hover {
+    background-color: rgb(117, 116, 116);
+  }
+  #secaoUsuario {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px; 
+  }
+  #secaoUsuario img {
+    border-radius: 10px;
+    margin-right: 5px;
+    height: 40px; 
+  }
+  #nomeUsuarioBarra {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    color: #ddd;
+    text-align: center;
+    margin: 0;
+    line-height: 40px;
+  }
+  .menuUsuario {
+    position: relative;
+  }
+  #Dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    transition: top 0.2s ease-in-out;
+  }
+  .menuUsuario #Dropdown li {
+    padding: 12px;
+  }
+  .menuUsuario #Dropdown li button {
+    color: #ddd;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 21px; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  .menuUsuario #Dropdown li button:hover {
+    background-color: rgb(117, 116, 116);
+  }
+  .wrapperPaginaInicio {
+    margin-top: 55px;
+  }
+  
+  .conteudoInicio {
+    display: grid;
+    grid-template-columns: 700px auto;
+    grid-template-rows: 1fr auto; 
+    grid-template-areas: 
+      "banner banner";
+    height: calc(100vh - 55px);
+  }
+  .tituloSubtitulo {
+    grid-area: tituloSubtitulo;
+  }
+  .banner {
+    grid-area: banner;
+    background-color: #F6F6F6;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+  }
+  .banner h1 {
+    display: block;
+    font-size: 80px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  .banner h1:last-child {
+    margin-bottom: 0px;
+  }
+  #cnc {
+    max-height: 100%; 
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+  }
+  

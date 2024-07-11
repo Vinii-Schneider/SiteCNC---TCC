@@ -1,0 +1,239 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+  }
+  /* SLIDERS MOTOR E PWM LED ----------------------------------------*/
+  #valordoPWM {
+    color: rgb(0, 0, 0);
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+  }
+  #valordoPWM2 {
+    color: rgb(0, 0, 0);
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+  }
+  #valordoPWM {
+    margin-top: 10px;
+  }
+  #valordoPWM2 {
+    margin-top: 10px;
+  }
+  /* FINAL SLIDERS MOTOR E PWM LED ----------------------------------*/
+
+  /* ENVIO GRAU SERVO SEM SLIDER ------------------------------------*/
+  .GrauServo {
+    margin-top: 18px;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .GrauServo label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+  }
+  .GrauServo input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+  }
+  .GrauServo button {
+      background-color: #4CAF50;
+      color: rgb(255, 255, 255);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+  .GrauServo button:hover {
+      background-color: #45a049;
+  }
+  /* FINAL ENVIO GRAU SERVO SEM SLIDER ------------------------------*/
+
+  /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px; 
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  /* FINAL BARRA DE NAVEGAÇÃO ---------------------------------------*/
+
+  /* FEEDBACK CÂMERA ------------------------------------------------*/
+  .Camfeedback {
+    position: absolute;
+    top: 10%;
+    right: auto;
+    text-align: center;
+    padding: 15px;
+    z-index: 1;
+  }
+  .Camfeedback img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  }
+  /* FINAL FEEDBACK CÂMERA ------------------------------------------*/
+
+  /* BOTÕES LIGA E DESLIGA LED --------------------------------------*/
+  button {
+    margin-top: 0%;
+  }
+  #butaoligaled {
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    padding: 4px;
+    border: 2px solid #3e7a26;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  #butaodesligaled {
+    background-color: #d81414;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    padding: 4px;
+    border: 2px solid #b12222;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  h2 {
+    color: rgb(0, 0, 0);
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+  }
+  .butoes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-left: 65px; 
+  }
+  div {
+    background-color: #ffffff;
+    color: white;
+  }
+  /* FINAL BOTÕES LIGA E DESLIGA LED --------------------------------*/
+
+  /* FUNÇÃO UPLOAD --------------------------------------------------*/
+  .upload {
+    background-color: #636262; 
+    color: #fff; 
+    border: 5px solid #444444; 
+    border-radius: 10px; 
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    margin: 10px ; 
+    height: 150px;
+    margin-left: 11%;
+  }
+  .upload h2 { 
+    margin-top: 8px;
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color:#ffffff
+  }
+  .upload button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: 2px solid #3e7a26;
+    border-radius: 5px;
+    font-family: Verdana, sans-serif; /* Usa a mesma fonte */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+  }
+  .upload button:hover {
+    background-color: #45a049;
+  } 
+  .upload input.uploadarquivo {
+    width: 100%;
+    padding: 5px;
+    margin-top: px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+  }
+  .upload form {
+    margin: 0;
+  }
+  /* FINAL FUNÇÃO UPLOAD --------------------------------------------*/
+
+  /* PINOS ARDUINO IMAGEM -------------------------------------------*/
+  .controlepinosdefato {
+    list-style: none;
+    display: flex;
+    margin-top: 83%;
+    padding: 10px;
+    margin-left: -22px;
+    scale: 0.8;
+  }
+  .controlepinosdefato li {
+    cursor: pointer;
+    position: relative;
+  }
+  .controlepinosdefato li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgb(221, 201, 19); /* Cor da bolinha */
+    display: none;
+  }
+  .controlepinosdefato li:hover::after {
+    display: block;
+  }
+  .controlepinos {
+    margin-top: 90%;
+  }

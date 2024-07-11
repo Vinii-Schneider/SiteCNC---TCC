@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F6F6F6;
+  overflow-y: auto;
+  height: calc(100px + 2px);
+}
+/* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
+
+.navegacao {
+  background-color: #333;
+  color: #ddd;
+  border: 2px solid rgb(34, 33, 33);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  padding: 8px 8px;
+  height: 35px;
+}
+.navegacao ul {
+  list-style: none;
+  padding-left: 2px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.navegacao ul li {
+  margin-right: 10px;
+}
+.navegacao .modoimagem {
+  justify-content: flex-end;
+}
+.navegacao a,
+.menuUsuario #Dropdown li button {
+  font-size: 21px;
+  display: block;
+  color: #ddd;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: color 0.5s, background-color 0.3s;
+}
+.navegacao a:hover,
+.menuUsuario #Dropdown li button:hover {
+  background-color: rgb(117, 116, 116);
+}
+#secaoUsuario {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 40px; 
+}
+#secaoUsuario img {
+  border-radius: 10px;
+  margin-right: 5px;
+  height: 40px; 
+}
+#nomeUsuarioBarra {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 21px;
+  color: #ddd;
+  text-align: center;
+  margin: 0;
+  line-height: 40px;
+}
+.menuUsuario {
+  position: relative;
+}
+#Dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 10px;
+  transition: top 0.2s ease-in-out;
+}
+.menuUsuario #Dropdown li {
+  padding: 12px;
+}
+.menuUsuario #Dropdown li button {
+  color: #ddd;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-size: 21px; 
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.menuUsuario #Dropdown li button:hover {
+  background-color: rgb(117, 116, 116);
+}
+
+/* FIM BARRA E DROPDOWN --------------------------------------------- */ 
+
+  .wrapperConteudo {
+    margin-top: 53px;
+  }
+  .conteudo {
+    display: grid;
+    grid-template-columns: 400px auto; 
+    grid-template-rows: auto calc(100vh - 53px) ; 
+  }
+  .colunaEsquerda {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    background-color: #f0f0f0; 
+    padding: 20px;
+    border: 1px solid #333
+  }
+  .paginaMain {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    background-color: #e0e0e0;
+    padding: 20px;
+    
+  }
+  .banner {
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 5px;
+    box-sizing: border-box;    
+  }
+  #imagemPerfil {
+    margin-left: 30px;
+    margin-top: -60px;
+    border-radius: 10px;
+    transition: filter 300ms ease;
+    position: relative;
+    z-index: 1;
+  }
+  #imagemPerfil:hover {
+    filter: brightness(75%);
+    cursor: pointer;
+  }
+  #nomeUsuarioPerfil {
+    font-size: 30px;
+    position: absolute;
+    font-weight: bold;
+    margin-left: 40px;
+    height: 60px;
+    line-height: 60px;
+    transform: translateY(10%);
+  }
+  .forms {
+    margin-top: 40px;
+  }
+  .forms span {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .forms input {
+    margin-right: 20px;
+  }
+  #mudancaFoto {
+    line-height: 4px;
+    margin-left: -50px;
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+  }
+  #imagemPerfil:hover ~ #mudancaFoto {
+    opacity: 1;
+  }

@@ -1,0 +1,129 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F6F6;
+    overflow-y: auto;
+  }
+  /* BARRA DE NAVEGAÃ‡ÃƒO ---------------------------------------------*/
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    padding: 8px 8px; 
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  #secaoUsuario {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px; 
+  }
+  #secaoUsuario img {
+    border-radius: 10px;
+    margin-right: 5px;
+    height: 40px; 
+  }
+  #nomeUsuarioBarra {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    color: #ddd;
+    text-align: center;
+    margin: 0;
+    line-height: 40px;
+  }
+
+/* FIM BARRA NAVEGACAO ----------------------------------------------*/
+  .conteudo {
+    display: grid;
+    grid-template-columns: 500px auto;
+    grid-template-rows: 300px auto;
+    grid-template-areas:
+     "wrapperTextoInicio wrapperTextoInicio"
+     "imagemContainer                 texto"
+     "imagemContainer                 texto";
+    margin-top: 53px;
+  }
+
+  .wrapperTextoInicio {
+    background-color: #ddd;
+    box-shadow: inset 0 0 0 1px #333;
+    display: flex;
+    grid-area: wrapperTextoInicio;
+    align-items: center;
+    justify-content: center;
+  }  
+  .texto {
+    grid-area: texto;
+    padding: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .texto li {
+    display: inline-block;
+    margin-right: 10px; 
+  }
+  .imagemContainer {
+    grid-area: imagemContainer;
+    padding: 20px;
+    box-sizing: border-box; 
+  }
+  
+  .imagemContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .elementosSubtitulo {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  .elementosSubtitulo a {
+    font-size: 20px;
+    text-decoration: none;
+    
+  }
+  

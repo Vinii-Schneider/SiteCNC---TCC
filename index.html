@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilosmobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="estilos.css" media="screen and (min-width: 768px)">
+    <title>Home | CTRL</title>
+    <script src="/trocarlinguagem.js" defer></script>
+    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+</head>
+<body>
+    <header class="navegacao">
+        <ul>
+            <li><img width="40" height="40" src="/window.png" alt="Logo provisória"></li>
+            <li><a class="Home" href="/index">Home</a></li>
+            <li><a class="Projetos" href="/projetos">Projetos</a></li>
+            <li><a href="/sobre">Sobre</a></li>
+            <li><a class="FAQs" href="/faqs">FAQs</a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login" href="/login">Login</a></li>
+            <li><a class="Registro" href="/registro">Registrar-se</a></li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario">
+                    <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                </button>
+                <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/configuracoes">Configurações</button></li>
+                    <li><button id="sairPerfil">Sair</button></li>
+                </ul> 
+            </li>
+            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/modoescuro" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
+            <script src="/trocalinguagem" nonce="batatinha"></script>
+        </ul>
+        </header>
+    <div class="wrapperPaginaInicio">
+        <div class="conteudoInicio">
+            <div class="banner">
+                <h1>Crie.</h1>
+                <h1>Compartilhe.</h1>
+                <h1>Configure.</h1>
+                <img src="/taldaCNC4.png" alt="" id="cnc" height="500px">
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

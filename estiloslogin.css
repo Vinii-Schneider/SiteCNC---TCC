@@ -1,0 +1,169 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F6F6;
+    overflow: unset;
+    margin-bottom: -35px;
+    height: 100%;
+  }
+  html {
+    height: 100%;
+  }
+  /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
+  
+  .navegacao {
+    background-color: #333;
+    color: #ddd;
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    padding: 8px 8px; 
+    height: 35px;
+  }
+  .navegacao ul {
+    list-style: none;
+    padding-left: 2px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .navegacao ul li {
+    margin-right: 10px; 
+  }
+  .navegacao .modoimagem {
+    justify-content: flex-end;
+  }
+  .navegacao a {
+    font-size: 21px;
+    display: block;
+    color: #ddd;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 400ms;
+  }
+  .navegacao a:hover {
+    transition: color 0.5s;
+    background-color: rgb(117, 116, 116);
+  }
+  #secaoUsuario {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px; 
+  }
+  #secaoUsuario img {
+    border-radius: 10px;
+    margin-right: 5px;
+    height: 40px; 
+  }
+  #nomeUsuarioBarra {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    color: #ddd;
+    text-align: center;
+    margin: 0;
+    line-height: 40px;
+  }
+
+/* FIM BARRA NAVEGAÇÃO ----------------------------------------------*/
+
+/* INICIO CONTAINER LOGIN -------------------------------------------*/
+
+  .imagemLogin img {
+    display: flex;
+    border-radius: 10px;
+  }
+  .conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #DDD;
+  }
+  .naosei {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    border-radius: 10px;
+    outline: 1px solid #333;
+    margin-top: 51px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  }
+  .wrapperLogin {
+    background-color: #F6F6F6;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column; 
+    border-radius: 10px;
+    outline: 1px solid #333;
+    
+  }
+  .conteudoLogin {
+    margin-left: 30px;
+    height: 100%;
+  }
+  .mensagemLogin {
+    display: block;
+    margin-top: 30px;
+  }
+  .mensagemLogin h2 { 
+    font-size: 35px;
+  }
+  .mensagemLogin p { 
+    font-size: medium;
+    margin-top: -10px;
+  }
+  .formulario {
+    margin-right: 35px;
+    height: 60%;
+  }
+  .formulario label {
+    font-size: 20px;
+  }
+  .formulario input {
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 50;
+    width: 100%;
+    border: solid 1px #333
+  }
+  .formulario input:hover {
+    transition: 200ms;
+    background-color: #F6F6F6;
+  }
+  .botoes {
+    display: flex;
+    justify-content: center;
+  }
+  .botoes button {
+    height: 50px;
+    width: 100%;
+    margin-right: 35px;
+    border-radius: 10px;
+    font-size: large;
+    border: solid 1px #333;
+    background-color: #F6F6F6;
+  }
+  .botoes button:hover {
+    transition: 200ms;
+    background-color: #e0e0e0;
+  }
+
+/* FIM CONTAINER LOGIN ----------------------------------------------*/
