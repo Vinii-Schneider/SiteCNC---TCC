@@ -1,11 +1,15 @@
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #F6F6F6;
-    overflow-y: auto;
-  }
+body {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 55px 1fr; 
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F6F6F6;
+  overflow-y: auto;
+}
   .navegacao {
+    grid-row: 1;
     background-color: #333;
     color: #ddd;
     border: 2px solid rgb(34, 33, 33);
@@ -15,7 +19,6 @@
     position: fixed;
     z-index: 2;
     width: 100%;
-    top: 0;
     padding: 8px 8px;
     height: 35px;
   }
@@ -106,7 +109,8 @@
     background-color: rgb(117, 116, 116);
   }
   .wrapperPaginaInicio {
-    margin-top: 55px;
+    grid-row: 2;
+    /*margin-top: 55px;*/
   }
   
   .conteudoInicio {
@@ -129,7 +133,7 @@
     flex-direction: column; 
   }
   .banner h1 {
-    display: block;
+    display: flex;
     font-size: 80px;
     margin-left: 20px;
     margin-bottom: 20px;

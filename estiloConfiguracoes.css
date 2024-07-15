@@ -1,14 +1,17 @@
 body {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 55px 1fr; 
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #F6F6F6;
   overflow-y: auto;
-  height: calc(100px + 2px);
 }
 /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
 
 .navegacao {
+  grid-row: 1;
   background-color: #333;
   color: #ddd;
   border: 2px solid rgb(34, 33, 33);
@@ -112,12 +115,13 @@ body {
 /* FIM BARRA E DROPDOWN --------------------------------------------- */ 
 
   .wrapperConteudo {
-    margin-top: 53px;
+    grid-row: 2;
   }
+  /*teste*/
   .conteudo {
     display: grid;
     grid-template-columns: 400px auto; 
-    grid-template-rows: auto calc(100vh - 53px) ; 
+    grid-template-rows: auto calc(100vh - 55px) ; 
   }
   .colunaEsquerda {
     grid-column: 1;
