@@ -41,13 +41,14 @@
     <div class="wrapperConteudo">
         <div class="conteudo">
             <div class="colunaEsquerda">
-                <ul class="elementosColuna">
-                    <h1>Configurações</h1>
-                    <li>Perfil público</li>
-                    <li>Informações gerais</li>
-                    <li>Segurança & login</li>
+                <div class="elementosColuna">
+                    <h1 style="margin-top: 20px; margin-bottom: 60px; width: 100%;">Configurações</h1>
+                    <li><button onclick="mostrarPerfilPublico()" style="border:none; font-size: 21px;">Perfil público</button></li>
+                    <li><button onclick="mostrarPreferencias()" style="border:none; font-size: 21px;">Preferências</button></li>
+                    <li><button onclick="mostrarSegurancaLogin()" style="border:none; font-size: 21px;">Segurança & login</button></li>
+                    <li><button onclick="mostrarInformacoesGerais()" style="border:none; font-size: 21px;">Informações gerais</button></li>
                     <li></li>
-                </ul>
+                </div>
             </div>
             <div class="paginaMain">
                 <div class="banner"><img src="https://picsum.photos/1000/200.jpg"></div>
@@ -61,5 +62,67 @@
             </div>
         </div>
     </div>
+    <script defer>
+        function mostrarPerfilPublico() {
+        var formsElementos = document.getElementsByClassName('forms')[0];
+        formsElementos.innerHTML = ''; 
+        formsElementos.innerHTML = `
+            <h1><u>Segurança e login</u></h1>
+            <div>
+                <p>Em breve</p>
+            </div>
+        `;
+        }
+        function mostrarInformacoesGerais() {
+            var formsElementos = document.getElementsByClassName('forms')[0]; 
+            formsElementos.innerHTML = ''; 
+            formsElementos.innerHTML = `
+            <h1><u>Informações gerais</u></h1>
+            <div>
+                <p>Nome de usuário: <span id="nomeUsuarioBarra2">Seu nome</span></p>
+                <p>Email: <span id="email">Seu email</sapn></p>
+                <p>Data de entrada: <span id="dataEntrada">Sua data de entrada</span></p>
+                <p>Foto de perfil: <button>Trocar imagem</button><p>
+                <p>Banner: <button>Trocar imagem</button><p>
+            </div>
+            `;
+            var fejao = document.getElementById("nomeUsuarioBarra");
+            var arroi = document.getElementById("nomeUsuarioBarra2");
+            arroi.textContent = fejao.textContent;;
+            var email = document.getElementById('email');
+            var dataEntrada = document.getElementById('dataEntrada');
+            const nomeUser = fejao.textContent;
+            async function fetchInfo() {
+                await fetch(`http://45.239.246.197:10100/infUsuario/${nomeUser}`)
+                    .then(response => {
+                        if(!response.ok) {
+                            throw new Error("Erro ao buscar a info do usuario");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        email.textContent = data.usuario.email;
+                        dataEntrada.textContent = data.usuario.data_criacao.replace('T', ' ').replace('.000Z', '');
+                    });
+            }
+            fetchInfo();
+        }   
+        function mostrarSegurancaLogin() {
+            var formsElementos = document.getElementsByClassName('forms')[0];
+            formsElementos.innerHTML = '';
+            formsElementos.innerHTML = `
+                <h1><u>Segurança e login</u></h1>
+                <div>
+                    <p>Em breve</p>
+                </div>
+            `;
+        }
+        function mostrarPreferencias() {
+            var formsElementos = document.getElementsByClassName('forms')[0];
+            formsElementos.innerHTML = '';
+            formsElementos.innerHTML = '<p>Preferências</p>';
+        }
+    </script>
 </body>
 </html>

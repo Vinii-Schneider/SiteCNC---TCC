@@ -13,6 +13,7 @@ function verificarLogin() {
         if (nomePerfilBotao) {
             nomePerfilBotao.dataset.url = `/Usuarios/${usuario.nomeUsuario}`;
         }
+        const email = document.getElementById('email');
         return usuario;
     } else {
         elementosLoginRegistro('block');
@@ -22,6 +23,7 @@ function verificarLogin() {
 }
 // top 10 piores codigos
 // Nome autoexplicativo
+
 function mostrarElementosUsuarioLogado(usuario) {
     const secaoUsuario = document.getElementById('secaoUsuario');
     const nomeUsuarioBarra = document.getElementById('nomeUsuarioBarra');

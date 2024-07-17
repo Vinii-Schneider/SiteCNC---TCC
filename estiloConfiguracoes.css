@@ -120,16 +120,53 @@ body {
   /*teste*/
   .conteudo {
     display: grid;
-    grid-template-columns: 400px auto; 
+    grid-template-columns: 300px auto; 
     grid-template-rows: auto calc(100vh - 55px) ; 
   }
   .colunaEsquerda {
     grid-column: 1;
     grid-row: 1 / 3;
     background-color: #f0f0f0; 
-    padding: 20px;
-    border: 1px solid #333
+    padding: 15px;
+    border: 1px solid #333;
   }
+  .elementosColuna {
+    width: 100%;
+    list-style: none;
+}
+.elementosColuna li {
+    margin-bottom: 50px;
+}
+.elementosColuna button {
+    display: inline-block;
+    position: relative;
+    font-size: 21px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    background: none;
+    border: none;
+    transition: font-size 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+.elementosColuna button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #000;
+    transition: width 0.3s ease;
+    left: 0;
+    bottom: -2px;
+}
+.elementosColuna button:hover::after {
+    width: 100%;
+}
+.elementosColuna button:hover {
+    font-size: 23px;
+    color: #007BFF;
+}
   .paginaMain {
     position: relative;
     grid-column: 2;

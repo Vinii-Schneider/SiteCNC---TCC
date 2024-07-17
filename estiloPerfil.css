@@ -119,8 +119,8 @@ body {
   }
   .conteudo {
     display: grid;
-    grid-template-columns: 400px auto; 
-    grid-template-rows: auto calc(100vh - 53px) ; 
+    grid-template-columns: 300px auto; 
+    grid-template-rows: auto calc(100vh - 55px) ; 
   }
   .colunaEsquerda {
     grid-column: 1;
@@ -135,7 +135,6 @@ body {
     grid-row: 1 / 3;
     background-color: #e0e0e0;
     padding: 20px;
-    
   }
   .banner {
     grid-row: 1 / 2;

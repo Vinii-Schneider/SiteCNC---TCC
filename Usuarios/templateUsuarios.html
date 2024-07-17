@@ -43,10 +43,9 @@
             <div class="colunaEsquerda">
                 <ul class="elementosColuna">
                     <h1>Configurações</h1>
-                    <li>Perfil público</li>
-                    <li>Informações gerais</li>
-                    <li>Segurança & login</li>
-                    <li></li>
+                    <li><button onclick="mostrarProjetosUsuario()">Projetos do usuário</button></li>
+                    <li><button onclick="mostrarInformacoesGerais()">Informações do usuário</button></li>
+                    <li><button onclick="mostrarSegurancaLogin()">Segurança & login</button></li>
                 </ul>
             </div>
             <div class="paginaMain">
@@ -61,5 +60,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function mostrarPerfilPublico() {
+            document.getElementById('Forms').innerHTML = '<p>Conteúdo dos projetos</p>';
+        }
+        function mostrarInformacoesGerais() {
+            document.getElementById('Forms').innerHTML = '<p>Conteúdo das Informações Gerais</p>';
+        }
+        function mostrarSegurancaLogin() {
+            document.getElementById('Forms').innerHTML = '<p>Conteúdo de Segurança & Login</p>';
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "192.168.3.84",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Database users",
+            "group": "Eu",
+            "database": "usuariosDB",
+            "username": "vinicius",
+            "askForPassword": true
+        }
+    ]
+}
