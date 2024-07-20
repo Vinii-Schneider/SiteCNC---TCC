@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>sdasda | Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilosProjetoMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="/estiloProjeto.css" media="screen and (min-width: 768px)">
+    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+</head>
+<body>
+    <div class="navegacao">
+        <ul>
+            <li><img width="40" height="40" src="/window.png" alt="Logo provisória" id="logo"></li>
+            <li><a class="Home" href="/index">Home</a></li>
+            <li><a class="Projetos" href="/projetos">Projetos</a></li>
+            <li id="sobre"><a href="/sobre" >Sobre</a></li>
+            <li id="faqs"><a class="FAQs" href="/faqs">FAQs</a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login" href="/login">Login</a></li>
+            <li><a class="Registro" href="/registro">Registrar-se</a></li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario">
+                    <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                </button>
+                <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/configuracoes">Configurações</button></li>
+                    <li><button id="sairPerfil">Sair</button></li>
+                </ul> 
+            </li>
+            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/modoescuro" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
+            <script src="/trocarlinguagem.js" nonce="batatinha"></script>
+        </ul>
+    </div>
+    <div class="conteudo"><div class="imagemContainer"><img src="/ImagensProjetos/2024-06-01_02.21.31.png" alt="Imagem do projeto"></div>
+        <div class="wrapperTextoInicio">
+            <div class="textoInicio">
+                <banner></banner>
+                <h1>sdasda</h1>
+                <div class="elementosSubtitulo"><img src="/usuarioPadrao.png" height="35px" width="35px" style="padding-right: 20px;"><a href="/Usuarios/admin.html">Admin</a></div>
+                <p>sdasdasd</p>
+            </div>
+        </div>
+        <div class="texto">
+            <h1>sdasda</h1>
+            <ul class="dadosProjeto">
+                <li class="autor">Admin</li>
+                <li class="dataCriacao">20/07/24 - 00:43</li>
+                <li class="diretorioProjeto"><a href='/projetos'>ProjetosSubmetidos</a></li>
+                <li class="comentarios"></li>
+            </ul>
+        </div>  
+    </div>
+
+</body>
+</html>

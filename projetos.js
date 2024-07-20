@@ -59,19 +59,20 @@ async function GerarHTMLProjeto2(projeto, imagem) {
             const dataProjeto = new FormData();
             dataProjeto.append('arquivo2', new Blob([conteudoHTML], { type: 'text/html' }), nomeProjeto);
             dataProjeto.append('projeto', JSON.stringify({ nome: nomeProjeto, conteudo: conteudoHTML }));
-            fetch('http://45.239.246.197:10100/salvarHTML', {
+            const resposta = await fetch('http://45.239.246.197:10100/salvarHTML', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ nome: nomeProjeto, conteudo: conteudoHTML }),
-            }).then(resposta => {
-                if (resposta.ok) {
-                    window.location.href = `/ProjetosSubmetidos/${nomeProjeto}`;
-                } else {
-                    console.error("Erro ao salvar o arquivo no servidor.");
-                }
             });
+            if (resposta.ok) {
+                const dados = await resposta.json();
+                const uuid = dados.id;
+                window.location.href = `http://45.239.246.197:10101/ProjetosSubmetidos/${uuid}.html`;
+            } else {
+                console.error("Erro ao salvar o arquivo no servidor.");
+            }
         } else {
             console.error("Conteúdo HTML inválido ou não obtido.");
         }
@@ -100,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 const dados = await resposta.json();
                 console.log('Arquivo enviado com sucesso:', dados);
-                
                 const projeto = {
                     titulo: titulo,
                     nome: document.getElementById('nomeUsuarioBarra').textContent,
