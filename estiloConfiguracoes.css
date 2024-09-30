@@ -133,11 +133,11 @@ body {
   .elementosColuna {
     width: 100%;
     list-style: none;
-}
-.elementosColuna li {
+  }
+  .elementosColuna li {
     margin-bottom: 50px;
-}
-.elementosColuna button {
+  }
+  .elementosColuna button {
     display: inline-block;
     position: relative;
     font-size: 21px;
@@ -148,8 +148,8 @@ body {
     border: none;
     transition: font-size 0.3s ease, color 0.3s ease;
     cursor: pointer;
-}
-.elementosColuna button::after {
+  }
+  .elementosColuna button::after {
     content: '';
     position: absolute;
     width: 0;
@@ -159,14 +159,14 @@ body {
     transition: width 0.3s ease;
     left: 0;
     bottom: -2px;
-}
-.elementosColuna button:hover::after {
+  }
+  .elementosColuna button:hover::after {
     width: 100%;
-}
-.elementosColuna button:hover {
+  }
+  .elementosColuna button:hover {
     font-size: 23px;
     color: #007BFF;
-}
+  }
   .paginaMain {
     position: relative;
     grid-column: 2;

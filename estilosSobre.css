@@ -6,7 +6,7 @@
     overflow-y: auto;
   }
   /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
-  
+
   .navegacao {
     background-color: #333;
     color: #ddd;
@@ -18,7 +18,7 @@
     z-index: 2;
     width: 100%;
     top: 0;
-    padding: 8px 8px; 
+    padding: 8px 8px;
     height: 35px;
   }
   .navegacao ul {
@@ -30,12 +30,13 @@
     font-weight: bold;
   }
   .navegacao ul li {
-    margin-right: 10px; 
+    margin-right: 10px;
   }
   .navegacao .modoimagem {
     justify-content: flex-end;
   }
-  .navegacao a {
+  .navegacao a,
+  .menuUsuario #Dropdown li button {
     font-size: 21px;
     display: block;
     color: #ddd;
@@ -43,10 +44,10 @@
     padding: 12px;
     text-decoration: none;
     border-radius: 10px;
-    transition: 400ms;
+    transition: color 0.5s, background-color 0.3s;
   }
-  .navegacao a:hover {
-    transition: color 0.5s;
+  .navegacao a:hover,
+  .menuUsuario #Dropdown li button:hover {
     background-color: rgb(117, 116, 116);
   }
   #secaoUsuario {
@@ -71,6 +72,40 @@
     text-align: center;
     margin: 0;
     line-height: 40px;
+  }
+  .menuUsuario {
+    position: relative;
+  }
+  #Dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    transition: top 0.2s ease-in-out;
+  }
+  .menuUsuario #Dropdown li {
+    padding: 12px;
+  }
+  .menuUsuario #Dropdown li button {
+    color: #ddd;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 21px; 
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  .menuUsuario #Dropdown li button:hover {
+    background-color: rgb(117, 116, 116);
   }
 /*AAAAAAAAAAAAAAAAA ----------------*/
 

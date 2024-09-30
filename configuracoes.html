@@ -2,10 +2,16 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Envio | CTRL</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/estiloConfiguracoesMobile.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="/estiloConfiguracoes.css" media="screen and (min-width: 768px)">
+    <title>Configurações | CTRL</title>
+    <script src="/projetos.js" nonce="batatinha" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="/perfil.js" nonce="batatinha" defer></script>
     <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
 </head>
@@ -43,10 +49,10 @@
             <div class="colunaEsquerda">
                 <div class="elementosColuna">
                     <h1 style="margin-top: 20px; margin-bottom: 60px; width: 100%;">Configurações</h1>
-                    <li><button onclick="mostrarPerfilPublico()" style="border:none; font-size: 21px;">Perfil público</button></li>
-                    <li><button onclick="mostrarPreferencias()" style="border:none; font-size: 21px;">Preferências</button></li>
-                    <li><button onclick="mostrarSegurancaLogin()" style="border:none; font-size: 21px;">Segurança & login</button></li>
-                    <li><button onclick="mostrarInformacoesGerais()" style="border:none; font-size: 21px;">Informações gerais</button></li>
+                    <li><button onclick="mostrarPerfilPublico()" style="border:none; font-size: 21px;" nonce="batatinha">Perfil público</button></li>
+                    <li><button onclick="mostrarPreferencias()" style="border:none; font-size: 21px;" nonce="batatinha">Preferências</button></li>
+                    <li><button onclick="mostrarSegurancaLogin()" style="border:none; font-size: 21px;" nonce="batatinha">Segurança & login</button></li>
+                    <li><button onclick="mostrarInformacoesGerais()" style="border:none; font-size: 21px;" nonce="batatinha">Informações gerais</button></li>
                     <li></li>
                 </div>
             </div>
@@ -62,7 +68,7 @@
             </div>
         </div>
     </div>
-    <script defer>
+    <script defer nonce="batatinha">
         function mostrarPerfilPublico() {
         var formsElementos = document.getElementsByClassName('forms')[0];
         formsElementos.innerHTML = ''; 

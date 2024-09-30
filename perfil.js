@@ -55,7 +55,7 @@ async function GerarHTMLPerfil(perfil, criarPaginaUsuario) {
     try {
         const conteudoHTML = await gerarDocHTML(perfil);
         if (conteudoHTML) {
-            const nomePerfil = `${slugSemOSlug(perfil.nomeUsuario)}.html`;
+            const nomePerfil = slugSemOSlug(perfil.nomeUsuario);
             const infoPerfil = await fetch(`http:45.239.246.197:10100/infUsuario/${nomePerfil}`);
             const dataPerfil = {
                 //TODO: Adicionar mais informações ao fetch e criar um sistema que procure a data em que o perfil do usuario foi criado

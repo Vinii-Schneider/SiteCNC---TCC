@@ -1,8 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Excluir o diretório /admin/ de todas as regras subsequentes
+    # RewriteRule ^ - [L]
+
+    # Redireciona URLs sem extensão para arquivos .html se existirem
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+    # Redireciona qualquer solicitação que não seja um arquivo existente ou diretório para /404.html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /404.html [L]
