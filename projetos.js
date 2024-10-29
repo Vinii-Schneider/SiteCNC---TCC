@@ -81,21 +81,28 @@ async function GerarHTMLProjeto2(projeto, imagem) {
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('uploadarquivo').addEventListener('click', async function (ação) {
-        ação.preventDefault();
-        const titulo = document.getElementById('Titulo').value;
+    document.getElementById('uploadarquivo').addEventListener('click', async function (acao) {
+        acao.preventDefault();
+        const titulo = document.getElementById('Titulo').value.trim(); // Usa .trim() para remover espaços
         const proprietarioElemento = document.getElementById('nomeUsuarioBarra');
         const InputArquivo = document.getElementById('Input');
+        if (!titulo) {
+            console.error('Título não pode ser vazio');
+            return;
+        }
         if (InputArquivo.files.length > 0) {
             const arquivo = InputArquivo.files[0];
             const DataFormulario = new FormData();
             DataFormulario.append('arquivo', arquivo);
-            DataFormulario.append('proprietario', proprietarioElemento.textContent);
+            DataFormulario.append('proprietario', proprietarioElemento.textContent.trim());
+            DataFormulario.append('titulo', titulo);
+            DataFormulario.append('descricao', document.getElementById('Descricao').value.trim()); 
             try {
                 const resposta = await fetch('http://45.239.246.197:10100/uploadarquivo', {
                     method: 'POST',
                     body: DataFormulario,
                 });
+                console.log('Resposta do servidor:', resposta);
                 if (!resposta.ok) {
                     throw new Error(`Erro no envio do arquivo: ${resposta.statusText}`);
                 }
@@ -103,12 +110,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Arquivo enviado com sucesso:', dados);
                 const projeto = {
                     titulo: titulo,
-                    nome: document.getElementById('nomeUsuarioBarra').textContent,
-                    //caminho: document.getElementById('nomeUsuarioBarra').textContent.toLowerCase() + '.html',
-                    descricao: document.getElementById('Descricao').textContent
+                    nome: proprietarioElemento.textContent.trim(), 
+                    descricao: document.getElementById('Descricao').value.trim(), 
                 };
-                alert(document.getElementById('Descricao').textContent);
-                GerarHTMLProjeto2(projeto, dados.caminhoArquivo);
+                let caminho = '/var/www/html/ImagensProjetos/' + dados.caminhoImagem;
+                GerarHTMLProjeto2(projeto, caminho);
+                console.log(caminho);
             } catch (error) {
                 console.error('Erro no envio do arquivo:', error.message);
             }

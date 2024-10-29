@@ -2,16 +2,21 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Envio | CTRL</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/estilosProjetoMobile.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="/estiloProjeto.css" media="screen and (min-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/estiloPerfilMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="/estiloPerfil.css" media="screen and (min-width: 768px)">
+    <title>Envios | CTRL</title>
+    <script src="/projetos.js" nonce="batatinha" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="/perfil.js" nonce="batatinha" defer></script>
     <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
 </head>
 <body>
-    <div class="navegacao">
+    <header class="navegacao">
         <ul>
             <li><img width="40" height="40" src="/window.png" alt="Logo provisória" id="logo"></li>
             <li><a class="Home" href="/index">Home</a></li>
@@ -25,7 +30,7 @@
             <li class="menuUsuario">
                 <button id="secaoUsuario">
                     <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
-                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                    <span id="nomeUsuarioBarra"></span>
                 </button>
                 <ul id="Dropdown">
                     <li><button id="nomePerfil" >Perfil</button></li>
@@ -38,6 +43,11 @@
             <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
             <script src="/trocarlinguagem.js" nonce="batatinha"></script>
         </ul>
+    </header>
+    <div class="wrapperConteudo">
+        <div class="conteudo">
+
+        </div>
     </div>
 </body>
 </html>

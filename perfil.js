@@ -10,7 +10,7 @@ function slugSemOSlug(texto) {
         .replace(/^-+/, '') 
         .replace(/-+$/, '');
 }
-async function obterConteudoDoArquivo() {
+async function conteudoArquivo() {
     const caminhoArquivo = '/Usuarios/templateUsuarios.html';
     try {
         const response = await fetch(caminhoArquivo);
@@ -26,7 +26,7 @@ async function obterConteudoDoArquivo() {
 }
 async function gerarDocHTML(perfil) {
     try {
-        const conteudoHTML = await obterConteudoDoArquivo();
+        const conteudoHTML = await conteudoArquivo();
         if (conteudoHTML) {
             return conteudoHTML
                 .replace(/\${perfil\.nome}/g, perfil.nomeUsuario)
@@ -41,8 +41,7 @@ async function gerarDocHTML(perfil) {
         return null;
     }
 }
-
-async function verificarSePaginaExiste(nomePerfil) {
+async function paginaExiste(nomePerfil) {
     try {
         const resposta = await fetch(`/Usuarios/${nomePerfil}`);
         return resposta.ok;
@@ -51,19 +50,20 @@ async function verificarSePaginaExiste(nomePerfil) {
         return false;
     }
 }
+
 async function GerarHTMLPerfil(perfil, criarPaginaUsuario) {
     try {
         const conteudoHTML = await gerarDocHTML(perfil);
         if (conteudoHTML) {
             const nomePerfil = slugSemOSlug(perfil.nomeUsuario);
-            const infoPerfil = await fetch(`http:45.239.246.197:10100/infUsuario/${nomePerfil}`);
+            const infoPerfil = await fetch(`http://45.239.246.197:10100/infUsuario/${nomePerfil}`);
             const dataPerfil = {
-                //TODO: Adicionar mais informações ao fetch e criar um sistema que procure a data em que o perfil do usuario foi criado
                 nome: nomePerfil,
-                email: infoPerfil,
+                email: await infoPerfil.text(),
                 conteudo: conteudoHTML,
                 criarPaginaUsuario: criarPaginaUsuario ? 'true' : 'false'
             };
+
             const resposta = await fetch('http://45.239.246.197:10100/salvarHTML', {
                 method: 'POST',
                 headers: {
@@ -71,24 +71,30 @@ async function GerarHTMLPerfil(perfil, criarPaginaUsuario) {
                 },
                 body: JSON.stringify(dataPerfil)
             });
-            if (resposta.ok) {
-                window.location.href = `/Usuarios/${nomePerfil}`;
-            } else {
-                console.error("Erro ao salvar o arquivo no servidor.");
-            }
+            
+            // Retorna true se a resposta do salvamento for bem-sucedida
+            return resposta.ok;
         }
     } catch (error) {
         console.error("Erro ao gerar o arquivo HTML:", error);
     }
+    return false; // Retorna false em caso de erro ou conteúdo inválido
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const nomePerfilBotao = document.getElementById('nomePerfil');
     if (nomePerfilBotao) {
         nomePerfilBotao.addEventListener('click', async function () {
             const perfil = verificarLogin();
             if (perfil) {
-                const criarPaginaUsuario = !await verificarSePaginaExiste(slugSemOSlug(perfil.nomeUsuario));
-                await GerarHTMLPerfil(perfil, criarPaginaUsuario);
+                const nomePerfil = slugSemOSlug(perfil.nomeUsuario);
+                const criarPaginaUsuario = !await paginaExiste(nomePerfil);
+                const sucesso = await GerarHTMLPerfil(perfil, criarPaginaUsuario);
+                if (sucesso && await paginaExiste(nomePerfil)) {
+                    window.location.href = `/Usuarios/${nomePerfil}`;
+                } else {
+                    console.error("Erro ao salvar ou redirecionar para a página do perfil.");
+                }
             } else {
                 console.error("Nenhum perfil encontrado.");
             }

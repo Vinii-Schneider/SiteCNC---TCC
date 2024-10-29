@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><script type="text/javascript" src="/___vscode_livepreview_injected_script"></script>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/estiloPerfilMobile.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="/estiloPerfil.css" media="screen and (min-width: 768px)">
     <title>Envios | CTRL</title>
-    <script src="/projetos.js" nonce="batatinha" defer></script>
+    <script src="/novoDisplayGrid.js" nonce="batatinha" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="/perfil.js" nonce="batatinha" defer></script>
@@ -16,7 +16,7 @@
     <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
 </head>
 <body>
-    <div class="navegacao">
+    <header class="navegacao">
         <ul>
             <li><img width="40" height="40" src="/window.png" alt="Logo provisória" id="logo"></li>
             <li><a class="Home" href="/index">Home</a></li>
@@ -30,7 +30,7 @@
             <li class="menuUsuario">
                 <button id="secaoUsuario">
                     <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
-                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+                    <span id="nomeUsuarioBarra"></span>
                 </button>
                 <ul id="Dropdown">
                     <li><button id="nomePerfil" >Perfil</button></li>
@@ -43,7 +43,7 @@
             <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
             <script src="/trocarlinguagem.js" nonce="batatinha"></script>
         </ul>
-    </div>
+    </header>
     <div class="wrapperConteudo">
         <div class="conteudo">
             <div style="margin-left: -40px" class="colunaEsquerda">
@@ -56,9 +56,12 @@
             </div>
             <div class="paginaMain">
                 <div class="banner"><img src="https://picsum.photos/1000/200.jpg"></div>
-                <img src="/usuarioPadrao.png" height="130px" alt="Imagem de perfil"id="imagemPerfil"><span id="nomeUsuarioPerfil">Nome </span>
+                <img src="/usuarioPadrao.png" height="130px" alt="Imagem de perfil"id="imagemPerfil"><h1 id="nomeUsuarioBanner" style="margin-top: -55px; margin-left: 180px;"></h1>
                 <div class="forms">
-                    <h1 id="nomeUsuarioPerfil">Projetos de User: </h1>
+                    <h1 id="projetosUser" style="margin-top: 80px;">Projetos de </h1>
+                </div>
+                <div class="conteudosLista">
+                    <ul class="gridLista"></ul>
                 </div>
             </div>
         </div>
@@ -73,6 +76,14 @@
         function mostrarSegurancaLogin() {
             document.getElementById('Forms').innerHTML = '<p>Conteúdo de Segurança & Login</p>';
         }
+    </script>
+        <script nonce="batatinha" defer>
+            const url = window.location.href;
+            const partesURL = window.location.href.split('/');
+            let nomeUsuario = partesURL[partesURL.length - 1].replace('.html', '');
+            nomeUsuario = nomeUsuario.charAt(0).toUpperCase() + nomeUsuario.slice(1).toLowerCase();
+            document.getElementById('nomeUsuarioBanner').innerText += nomeUsuario;
+            document.getElementById('projetosUser').textContent += `${nomeUsuario}:`;
     </script>
 </body>
 </html>
