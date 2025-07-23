@@ -1,11 +1,13 @@
 *.jpg
 *.png
 *.ico
+.htaccess
 /ImagensProjetos/*
 /admin
+/admin_backup
 /Usuarios/*
 /ProjetosSubmetidos/*
 /ImagensProjetos/*
 /ArquivosRecebidos/*
 /uploadsBaianos/*
-.vscode
+/.vscode/*
