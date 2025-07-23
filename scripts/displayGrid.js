@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function listarDiretoriosHTML() {
                             const imagemContainer = projetoDoc.querySelector('.imagemContainer img');
 
                             // Se não encontrar uma imagem, define uma imagem padrão
-                            const imagemSrc = imagemContainer ? imagemContainer.getAttribute('src') : '/padrao1.jpg';
+                            const imagemSrc = imagemContainer ? imagemContainer.getAttribute('src') : '/assets/padrao1.jpg';
 
                             // Adiciona as informações do projeto à lista
                             projetos.push({

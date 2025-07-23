@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilosmobileregistro.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="estilosregistro.css" media="screen and (min-width: 768px)">
-    <script src="/trocarlinguagem.js" nonce="batatinha"></script>
-    <script src="/registros.js" nonce="batatinha"></script>
-    <script src="/verificacaoLogin.js" nonce="batatinha"></script>
+    <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
+    <script src="/scripts/registros.js" nonce="batatinha"></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script>
 </head>
 <body>
     <header class="navegacao">
         <ul>
-            <li><img width="40" height="40" src="/window.png" alt="Logo provisória"></li>
+            <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
             <li><a class="Home" href="/index">Home</a></li>
             <li><a class="Projetos" href="/projetos">Projetos</a></li>
             <li><a href="/sobre">Sobre</a></li>
@@ -24,14 +24,14 @@
             <li><a class="Login" href="/login">Login</a></li>
             <li><a class="Registro" href="/registro">Registrar-se</a></li>
             <li id="secaoUsuario" style="display: none;">
-                <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
                 <span id="nomeUsuarioBarra"></span>
             </li>
-            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
-            <script src="/modoescuro" nonce="batatinha"></script>
-            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
-            <script src="/trocalinguagem" nonce="batatinha"></script>
-            
+            <li><img class="modoimagem" width="30" height="30" src="/assets/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/scripts/modoescuro.js" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/assets/brazil.png" id="bandeira"></li>
+            <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
+
         </ul>
     </header>
     <div class="conteudo">
@@ -39,7 +39,7 @@
             <div class="naosei">
                 <div class="wrapperImagem">
                     <div class="imagemLogin">
-                        <img src="/bemvindo.jpg" height="504px" width="550px">
+                        <img src="/assets/bemvindo.jpg" height="504px" width="550px">
                     </div>
                 </div>
                 <div class="wrapperLogin">

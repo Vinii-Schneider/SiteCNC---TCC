@@ -16,7 +16,7 @@ function slugSemOSlug2(texto) {
 
 // Função para obter o conteúdo do arquivo HTML do template
 async function obterConteudoDoArquivo2() {
-    const caminhoArquivo = '/templateProjetos.html';
+    const caminhoArquivo = '/assets/templateProjetos.html';
     try {
         const response = await fetch(caminhoArquivo);
         if (!response.ok) {

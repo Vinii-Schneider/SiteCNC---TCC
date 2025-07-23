@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="/estiloProjetosMobile.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="/estiloProjetos.css" media="screen and (min-width: 768px)">
     <title>Projetos | CTRL</title>
-    <script src="/projetos.js" nonce="batatinha" defer></script>
+    <script src="/scripts/projetos.js" nonce="batatinha" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
-    <script src="/perfil.js" nonce="batatinha" defer></script>
-    <script src="/novoDisplayGrid.js" nonce="batatinha" defer></script>
-    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/scripts/perfil.js" nonce="batatinha" defer></script>
+    <script src="/scripts/novoDisplayGrid.js" nonce="batatinha" defer></script>
+    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
 </head>
 <body>
     <header class="navegacao">
     <ul>
-        <li><img width="40" height="40" src="/window.png" alt="Logo provisória"></li>
+        <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
         <li><a class="Home" href="/index">Home</a></li>
         <li><a class="Projetos" href="/projetos">Projetos</a></li>
         <li><a href="/sobre">Sobre</a></li>
@@ -30,7 +30,7 @@
         <li><a class="Registro" href="/registro">Registrar-se</a></li>
         <li class="menuUsuario">
             <button id="secaoUsuario">
-                <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
                 <span id="nomeUsuarioBarra">Nome do Usuário</span>
             </button>
             <ul id="Dropdown">
@@ -39,10 +39,10 @@
                 <li><button id="sairPerfil">Sair</button></li>
             </ul> 
         </li>
-        <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
-        <script src="/modoescuro" nonce="batatinha"></script>
-        <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
-        <script src="/trocalinguagem" nonce="batatinha"></script>
+        <li><img class="modoimagem" width="30" height="30" src="/assets/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+        <script src="/scripts/modoescuro.js" nonce="batatinha"></script>
+        <li><img class="trocalinguagem" height="40" src="/assets/brazil.png" id="bandeira"></li>
+        <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
     </ul>
     </header>
     <div class="conteudo">
