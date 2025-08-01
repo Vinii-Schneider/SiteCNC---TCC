@@ -10,9 +10,10 @@
     <title>Sobre | CTRL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="/verificacaoLogin.js" nonce="batatinha" defer></script>
-    <script src="/perfil.js" nonce="batatinha" defer></script>
-    <script src="/dropdownBarra.js" nonce="batatinha" defer></script>
+    <script src="/scripts/trocarlinguagem.js" nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/scripts/perfil.js" nonce="batatinha" defer></script>
+    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
 
     <!-- <meta charset="UTF-8">
     <title>Sobre</title>
@@ -20,24 +21,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilosmobile3.css" media="screen and (max-width: 767px)">
     <link rel="stylesheet" href="estilosSobre.css" media="screen and (min-width: 768px)">
-    <script src="/trocarlinguagem.js" nonce="batatinha"></script>
-    <script src="/verificacaoLogin.js" nonce="batatinha"></script> -->
+    <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script> -->
 </head>
 <body>
     <header class="navegacao">
         <ul>
-            <li><img width="40" height="40" src="/window.png" alt="Logo provisória"></li>
-            <li><a class="Home" href="/index">Home</a></li>
-            <li><a class="Projetos" href="/projetos">Projetos</a></li>
-            <li><a href="/sobre">Sobre</a></li>
-            <li><a class="FAQs" href="/faqs">FAQs</a></li>
+            <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
+            <li><a class="Home" href="index.html">Home</a></li>
+            <li><a class="Projetos" href="projetos.html">Projetos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a class="FAQs" href="faqs.html">FAQs</a></li>
         </ul>
         <ul class="ElementosDireita">
-            <li><a class="Login" href="/login">Login</a></li>
-            <li><a class="Registro" href="/registro">Registrar-se</a></li>
+            <li><a class="Login" href="login.html">Login</a></li>
+            <li><a class="Registro" href="registro.html">Registrar-se</a></li>
             <li class="menuUsuario">
                 <button id="secaoUsuario">
-                    <img id="fotoPerfil" width="40" height="40" src="/usuarioPadrao.png" alt="Foto de Perfil">
+                    <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
                     <span id="nomeUsuarioBarra">Nome do Usuário</span>
                 </button>
                 <!-- <ul id="dropdownMenu">
@@ -46,16 +47,16 @@
                     <li><a href="#">Sair</a></li>
                 </ul> -->
             </li>
-            <li><img class="modoimagem" width="30" height="30" src="/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
-            <script src="/modoescuro" nonce="batatinha"></script>
-            <li><img class="trocalinguagem" height="40" src="/brazil.png" id="bandeira"></li>
-            <script src="/trocalinguagem" nonce="batatinha"></script>
+            <li><img class="modoimagem" width="30" height="30" src="/assets/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/scripts/modoescuro.js" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/assets/brazil.png" id="bandeira"></li>
+            <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
         </ul>
     </header>
     <div class="conteudo">
         <div class="wrapperImagem">
             <div class="imagemSobre">
-                <img src="/em_breve.png" width="100%" height="100%"alt="Em breve" title="Em breve">
+                <img src="/assets/em_breve.png" width="100%" height="100%"alt="Em breve" title="Em breve">
             </div>
         </div>
         <div class="wrapperTexto">
