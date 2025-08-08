@@ -33,7 +33,7 @@ async function envioRegistro() {
         alert('Usuário ' + JSON.stringify(nomeUsuarioNovo) + ' Registrado com sucesso');
 
         // Redireciona para a página de login após o registro
-        window.location.href = 'http://45.239.246.197:10101/login.html';
+        window.location.href = 'http://45.239.246.197:10101/public/login.html';
     } catch (error) {
         console.error('Erro:', error);
     }
