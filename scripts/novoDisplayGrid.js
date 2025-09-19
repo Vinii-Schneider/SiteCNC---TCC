@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
 
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 8000); // 8 segundos
 
         const response = await fetch("http://45.239.246.197:10100/projetos", {
             method: 'POST',
@@ -17,8 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             body: JSON.stringify({}),
             signal: controller.signal
         });
-        clearTimeout(timeout);
-
 
         if (!response.ok) {
             throw new Error(`Erro HTTP: ${response.status}`);

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro CNC</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilosmobileregistro.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="estilosregistro.css" media="screen and (min-width: 768px)">
+    <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
+    <script src="/scripts/registros.js" nonce="batatinha"></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script>
+    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
+</head>
+<body>
+    <header class="navegacao">
+        <ul>
+            <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
+            <li><a class="Home" href="index.html">Home</a></li>
+            <li><a class="Projetos" href="projetos.html">Projetos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a class="FAQs" href="registroCNC.html">FAQs</a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login" href="login.html">Login</a></li>
+            <li><a class="Registro" href="registro.html">Registrar-se</a></li>
+            <li id="secaoUsuario" style="display: none;">
+                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
+                <span id="nomeUsuarioBarra"></span>
+            </li>
+            <li><img class="modoimagem" width="30" height="30" src="/assets/modoescuronovo.png" alt="Modo escuro" onclick="TrocarModo()"></li>   
+            <script src="/scripts/modoescuro.js" nonce="batatinha"></script>
+            <li><img class="trocalinguagem" height="40" src="/assets/brazil.png" id="bandeira"></li>
+            <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
+
+        </ul>
+    </header>
+    <div class="conteudo">
+        <div class="wrapperPrincipal">
+            <div class="teste">
+                <h1>Registre sua CNC</h1>
+                <form id="formRegistroCNC" enctype="multipart/form-data">
+                    <label for="ID">ID da sua CNC: </label>
+                    <input type="text" id="ID" name="Tituloo"><br><br>                                    
+                    <button type="button" id="Verificar">Verificar</button>
+                </form>
+
+                <div id="avisoID" style="margin-top:10px; font-weight:bold;"></div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/verificacaoCNC.js" nonce="batatinha"></script>
+</body>
+</html>

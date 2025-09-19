@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>${projeto.titulo} | ${projeto.nome}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilosProjetoMobile.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="estiloProjeto.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="/public/estilosProjetoMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="/public/estiloProjeto.css" media="screen and (min-width: 768px)">
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
 </head>
@@ -13,14 +13,14 @@
     <div class="navegacao">
         <ul>
             <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória" id="logo"></li>
-            <li><a class="Home" href="index.html">Home</a></li>
-            <li><a class="Projetos" href="projetos.html">Projetos</a></li>
-            <li id="sobre"><a href="sobre.html">Sobre</a></li>
-            <li id="faqs"><a class="FAQs" href="faqs.html">FAQs</a></li>
+            <li><a class="Home" href="/public/index.html">Home</a></li>
+            <li><a class="Projetos" href="/public/projetos.html">Projetos</a></li>
+            <li id="sobre"><a href="/public/sobre.html">Sobre</a></li>
+            <li id="faqs"><a class="FAQs" href="/public/registroCNC.html">FAQs</a></li>
         </ul>
         <ul class="ElementosDireita">
-            <li><a class="Login" href="login.html">Login</a></li>
-            <li><a class="Registro" href="registro.html">Registrar-se</a></li>
+            <li><a class="Login" href="/public/login.html">Login</a></li>
+            <li><a class="Registro" href="/public/registro.html">Registrar-se</a></li>
             <li class="menuUsuario">
                 <button id="secaoUsuario">
                     <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
@@ -52,7 +52,7 @@
             <ul class="dadosProjeto">
                 <li class="autor">${projeto.nome}</li>
                 <li class="dataCriacao">${projeto.dataCriacao}</li>
-                <li class="diretorioProjeto"><a href='projetos.html'>ProjetosSubmetidos</a></li>
+                <li class="diretorioProjeto"><a href='/public/projetos.html'>ProjetosSubmetidos</a></li>
                 <li class="comentarios"></li>
             </ul>
         </div>  

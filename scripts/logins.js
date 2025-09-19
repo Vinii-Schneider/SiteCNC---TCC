@@ -46,7 +46,7 @@ async function envioSenha(envio) {
         localStorage.setItem('usuario', JSON.stringify(data.usuario));
         alert("Perfil verificado: " + JSON.stringify(nomeUsuario));
         updateBarra(nomeUsuario);
-        window.location.href = 'http://45.239.246.197:10101/public/projetos'; // Redirecionamento caso login/registro realizado
+        window.location.href = 'http://45.239.246.197:10101/public/projetos.html'; // Redirecionamento caso login/registro realizado
     } catch (error) {
         console.error('Erro ao realizar o login:', error);
         mensagemErro.textContent = 'Erro no servidor';

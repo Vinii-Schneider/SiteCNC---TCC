@@ -42,28 +42,19 @@ async function gerarDocHTML2() {
     }
 }
 
-// Função para gerar o HTML do projeto
+// Função para gerar o HTML do projeto e enviá-lo ao servidor
 async function GerarHTMLProjeto2(projeto, imagem) {
     try {
-
-        // Obtém o caminho do perfil do usuário e o nome do projeto
         const caminhoUser = document.getElementById('nomeUsuarioBarra').textContent.toLowerCase() + '.html';
-
-        // Para a URL, o nome do projeto deve ser sem acentos e com extensão .html
         const nomeProjetoSemCorrecao = slugSemOSlug2(projeto.titulo);
-
-        // Adiciona a extensão .html corretamente aqui
-        const nomeProjeto = `${nomeProjetoSemCorrecao}` + '.html';
+        const nomeProjeto = `${nomeProjetoSemCorrecao}.html`;
 
         // Obter o conteúdo do template HTML
         let conteudoHTML = await gerarDocHTML2(projeto);
-        // Se o template HTML foi obtido com sucesso, faça:
+        
         if (conteudoHTML) {
-
-            // Obtem a data e hora atual com base no relógio do servidor
+            // Obtem a data e hora atual
             const dataAtual = new Date();
-
-            // Formatar a data e hora atual
             const dia = String(dataAtual.getDate()).padStart(2, '0');
             const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); 
             const ano = String(dataAtual.getFullYear()).slice(-2); 
@@ -82,29 +73,38 @@ async function GerarHTMLProjeto2(projeto, imagem) {
 
             // Adicionar a imagem ao HTML
             const imagemContainerDiv = `<div class="imagemContainer"><img src="${imagem.replace('/var/www/html', '')}" alt="Imagem do projeto"></div>`;
-
-            // Inserir a nova div com a imagem no conteúdo HTML
             conteudoHTML = conteudoHTML.replace('<div class="conteudo">', `<div class="conteudo">${imagemContainerDiv}`);
 
-            // dataProjeto é um objeto FormData que será enviado ao servidor
-            const dataProjeto = new FormData();
-            // Adiciona o arquivo HTML ao FormData
-            dataProjeto.append('arquivo2', new Blob([conteudoHTML], { type: 'text/html' }), nomeProjeto);
-            
-            // Adiciona o nome do projeto ao FormData
-            dataProjeto.append('projeto', JSON.stringify({ nome: nomeProjeto, conteudo: conteudoHTML }));
+            const dadosParaEnviar = {
+                nome: nomeProjeto,
+                conteudo: conteudoHTML,
+                criarPaginaUsuario: false
+            };
 
-            // Envia o FormData para o servidor
+            console.log('Enviando para /salvarHTML:', dadosParaEnviar);
+
+            // Envia como JSON para o servidor
             const resposta = await fetch('http://45.239.246.197:10100/salvarHTML', {
                 method: 'POST',
-                body: dataProjeto,
+                headers: {
+                    'Content-Type': 'application/json', // Importante!
+                },
+                body: JSON.stringify(dadosParaEnviar),
             });
+
             if (resposta.ok) {
                 const dados = await resposta.json();
-                const uuid = dados.id;
-                window.location.href = `http://45.239.246.197:10101/ProjetosSubmetidos/${uuid}.html`;
+                console.log('HTML salvo com sucesso:', dados);
+                
+                // Redireciona para o projeto criado
+                if (dados.id) {
+                    window.location.href = `http://45.239.246.197:10101/ProjetosSubmetidos/${dados.id}.html`;
+                } else if (dados.uuid) {
+                    window.location.href = `http://45.239.246.197:10101/ProjetosSubmetidos/${dados.uuid}.html`;
+                }
             } else {
-                console.error("Erro ao salvar o arquivo no servidor.");
+                const erro = await resposta.json();
+                console.error("Erro ao salvar o arquivo no servidor:", erro);
             }
         } else {
             console.error("Conteúdo HTML inválido ou não obtido.");
@@ -113,6 +113,7 @@ async function GerarHTMLProjeto2(projeto, imagem) {
         console.error("Erro ao gerar o arquivo HTML:", error);
     }
 }
+          
 document.addEventListener('DOMContentLoaded', function () {
 
     // Quando o botão de upload for clicado, executa a função
