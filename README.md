@@ -1,4 +1,4 @@
 # SiteCNC---TCC
-Hello there. These are the archives for the front-end of my website, which is in construction. 
-The codes you'll see here aren't good, but I'm still working on improving it. I created all this while learning how to use GIT properly, which sounded more complicated than it should.
-Note that, if I don't git too often, I'm still trying to figure it out how to git to Github. Thanks
+
+This website is a centralized platform for CNC enthusiasts and operators, providing seamless integration with your machine via a custom Raspberry Pi module with internet access.
+Each solution is customized for your specific CNC model, generating a unique machine ID. This ID is securely sent to the main server and stored in a centralized index. Owners can register their machine using this unique ID, ensuring personalized access and management for their exact model.
