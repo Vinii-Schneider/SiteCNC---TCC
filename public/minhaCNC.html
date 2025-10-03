@@ -5,12 +5,13 @@
     <title>Registro CNC</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilosmobileregistro.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="estilosregistro.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="estilosMinhaCNCMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="estilosMinhaCNC.css" media="screen and (min-width: 768px)">
     <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
     <script src="/scripts/registros.js" nonce="batatinha"></script>
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script>
     <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoCNC.js" nonce="batatinha"></script>
 </head>
 <body>
     <header class="navegacao">
@@ -32,19 +33,61 @@
     </header>
     <div class="conteudo">
         <div class="wrapperPrincipal">
-            <div class="teste">
+            <div class="teste2">
+                <!-- Ficará escondido caso haja uma CNC já registrada -->
                 <h1>Registre sua CNC</h1>
                 <form id="formRegistroCNC" enctype="multipart/form-data">
                     <label for="ID">ID da sua CNC: </label>
                     <input type="text" id="ID" name="Tituloo"><br><br>                                    
                     <button type="button" id="Verificar">Verificar</button>
                 </form>
-
                 <div id="avisoID" style="margin-top:10px; font-weight:bold;"></div>
-
+            </div>
+            <div class="wrapperPrincipalCNC">
+                <div class="gridCNC">
+                    <h1>Máquinas registradas: </h1>
+                    <ul class="gridListaCNC"></ul>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/scripts/verificacaoCNC.js" nonce="batatinha"></script>
+    
 </body>
 </html>
+<script nonce="batatinha" defer>
+window.addEventListener('DOMContentLoaded', async () => {
+    // Pega o usuário logado
+    const usuario = verificarLogin();
+    if (!usuario) return;
+
+    const gridLista = document.querySelector('.gridListaCNC');
+    if (!gridLista) return;
+
+    try {
+        // Faz fetch no seu endpoint POST que retorna CNCs do usuário
+        const res = await fetch('http://45.239.246.197:10100/listagemCNC', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usuario: usuario.nomeUsuario })
+        });
+
+        const cncList = await res.json();
+
+        if (cncList.length === 0) {
+            gridLista.innerHTML = '<li>Você ainda não possui CNCs registradas.</li>';
+            return;
+        }
+
+        // Preenche a lista
+        cncList.forEach(cnc => {
+            const li = document.createElement('li');
+            li.textContent = `ID: ${cnc.id} | Status: ${cnc.status} | Versão: ${cnc.versao}`;
+            gridLista.appendChild(li);
+        });
+
+    } catch (err) {
+        console.error('Erro ao buscar CNCs do usuário:', err);
+        gridLista.innerHTML = '<li>Erro ao carregar CNCs.</li>';
+    }
+});
+</script>

@@ -87,7 +87,7 @@ async function GerarHTMLProjeto2(projeto, imagem) {
             const resposta = await fetch('http://45.239.246.197:10100/salvarHTML', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json', // Importante!
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dadosParaEnviar),
             });

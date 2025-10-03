@@ -16,7 +16,7 @@ function slugSemOSlug(texto) {
 
 async function conteudoArquivo() {
     // Função para obter o conteúdo do arquivo HTML do template dos usuarios
-    const caminhoArquivo = '/Usuarios/templateUsuarios.html';
+    const caminhoArquivo = 'http://45.239.246.197:10100/assets/templateUsuarios.html';
     try {
         const response = await fetch(caminhoArquivo);
         if (!response.ok) {
@@ -52,7 +52,7 @@ async function gerarDocHTML(perfil) {
 // Função para verificar se a pagina do perfil já existe
 async function paginaExiste(nomePerfil) {
     try {
-        const resposta = await fetch(`/Usuarios/${nomePerfil}`);
+        const resposta = await fetch(`http://45.239.246.197:10100/Usuarios/${nomePerfil}`);
         return resposta.ok;
     } catch (error) {
         console.error('Erro ao verificar a existência da página:', error);
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Se o HTML foi gerado com sucesso e a página do perfil existe, redireciona para a página do perfil
                 if (sucesso && await paginaExiste(nomePerfil)) {
-                    window.location.href = `/Usuarios/${nomePerfil}`;
+                    window.location.href = `http://45.239.246.197:10101/Usuarios/${nomePerfil}.html`;
                 } else {
                     // Se não foi possível gerar o HTML ou a página do perfil não existe, exibe um erro
                     console.error("Erro ao salvar ou redirecionar para a página do perfil.");
