@@ -2,49 +2,76 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Registro CNC</title>
+    <title>Registro CNC | CTRL</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilosmobileregistro.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="estilosregistro.css" media="screen and (min-width: 768px)">
-    <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
-    <script src="/scripts/registros.js" nonce="batatinha"></script>
-    <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script>
-    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
+    <meta name="viewport"                      content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilosRegistroCNCMobile.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="estilosRegistroCNC.css"       media="screen and (min-width: 768px)">
+    <script src="/scripts/trocarlinguagem.js"  nonce="batatinha" defer></script>
+    <script src="/scripts/registros.js"        nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
+    <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
 </head>
 <body>
     <header class="navegacao">
         <ul>
             <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
-            <li><a class="Home" href="index.html">Home</a></li>
-            <li><a class="Projetos" href="projetos.html">Projetos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a class="FAQs" href="registroCNC.html">FAQs</a></li>
+            <li><a class="Home"     href="index.html"       >Home      </a></li>
+            <li><a class="Projetos" href="projetos.html"    >Projetos  </a></li>
+            <li><a                  href="sobre.html"       >Sobre     </a></li>
+            <li><a class="FAQs"     href="registroCNC.html" >Minha CNC </a></li>
         </ul>
         <ul class="ElementosDireita">
-            <li><a class="Login" href="login.html">Login</a></li>
+            <li><a class="Login"    href="login.html"   >Login       </a></li>
             <li><a class="Registro" href="registro.html">Registrar-se</a></li>
-            <li id="secaoUsuario" style="display: none;">
-                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
-                <span id="nomeUsuarioBarra"></span>
-            </li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario" style="display: none;">
+                    <img  id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+            </button>
+                 <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/public/configuracoes.html">Configurações</button></li>
+                    <li><button id="sairPerfil" >Sair  </button></li>
+                </ul> 
+            </li> 
         </ul>
     </header>
     <div class="conteudo">
         <div class="wrapperPrincipal">
-            <div class="teste">
-                <h1>Registre sua CNC</h1>
-                <form id="formRegistroCNC" enctype="multipart/form-data">
-                    <label for="ID">ID da sua CNC: </label>
-                    <input type="text" id="ID" name="Tituloo"><br><br>                                    
-                    <button type="button" id="Verificar">Verificar</button>
-                </form>
-
-                <div id="avisoID" style="margin-top:10px; font-weight:bold;"></div>
-
+            <div class="naosei">
+                <div class="wrapperImagem">
+                    <div class="imagemLogin">
+                        <img src="/assets/bemvindo.jpg" height="504px" width="550px">
+                    </div>
+                </div>
+                <div class="wrapperLogin">
+                    <div class="conteudoLogin">
+                        <div class="mensagemLogin">
+                            <h2>Registro de CNC</h2>
+                            <p>Adicione aqui sua máquina ao seu portfólio</p>
+                        </div>
+                        <div class="formulario">           
+                            <label class="jonas" for="nomeUsuario">Nome de usuário / e-mail: </label>
+                            <input type="text" id="nomeUsuario"><br></br>
+                            <label for="senha">Senha: </label>
+                            <input type="password"  id="senha"><br><br>  
+                            <div id="mensagemErro" style="color: red; display: none; margin-top: -9px;"></div>                       
+                        </div>
+                        <div class="mensagemFooter">
+                           <p>Já possui alguma máquina registrada?</p><a href="minhaCNC.html">Clique aqui</a> 
+                        </div>
+                        
+                        <div class="botoes">
+                            <button type="button" id="botaoLogin">Prosseguir</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
     <script src="/scripts/verificacaoCNC.js" nonce="batatinha"></script>
 </body>
 </html>

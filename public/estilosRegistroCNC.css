@@ -1,12 +1,17 @@
-  body {
+   body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #F6F6F6;
-    overflow-y: auto;
+    overflow: unset;
+    margin-bottom: -35px;
+    height: 100%;
   }
-  /* BARRA DE NAVEGAÃ‡ÃƒO ---------------------------------------------*/
-  
+  html {
+    height: 100%;
+  }
+  /* BARRA DE NAVEGAÇÃO ---------------------------------------------*/
+
   .navegacao {
     background-color: #333;
     color: #ddd;
@@ -107,59 +112,111 @@
   .menuUsuario #Dropdown li button:hover {
     background-color: rgb(117, 116, 116);
   }
+  /* FIM BARRA DE NAVEGAÇÃO ---------------------------------------------*/
 
-/* FIM BARRA NAVEGACAO ----------------------------------------------*/
-  .conteudo {
-    display: grid;
-    grid-template-columns: 500px auto;
-    grid-template-rows: 300px auto;
-    grid-template-areas:
-     "wrapperTextoInicio wrapperTextoInicio"
-     "imagemContainer                 texto"
-     "imagemContainer                 texto";
-    margin-top: 53px;
-  }
 
-  .wrapperTextoInicio {
-    background-color: #ddd;
-    box-shadow: inset 0 0 0 1px #333;
+  .imagemLogin img {
     display: flex;
-    grid-area: wrapperTextoInicio;
+    border-radius: 10px;
+  }
+  .conteudo {
+    display: flex;
     align-items: center;
     justify-content: center;
-  }  
-  .texto {
-    grid-area: texto;
-    padding: 20px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  .texto li {
-    display: inline-block;
-    margin-right: 10px; 
-  }
-  .imagemContainer {
-    grid-area: imagemContainer;
-    padding: 20px;
-    box-sizing: border-box; 
-  }
-  
-  .imagemContainer img {
-    width: 100%;
     height: 100%;
-    object-fit: cover; 
+    background-color: #DDD;
+  }
+  .naosei {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
     border-radius: 10px;
-    box-sizing: border-box;
+    outline: 1px solid #333;
+    margin-top: 51px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
   }
-  .elementosSubtitulo {
+  .wrapperLogin {
+    background-color: #F6F6F6;
     display: flex;
-    align-items: center;
-    gap: 10px; 
-  }
-  .elementosSubtitulo a {
-    font-size: 20px;
-    text-decoration: none;
+    max-width: 100%;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column; 
+    border-radius: 10px;
+    outline: 1px solid #333;
     
   }
-  
+  .conteudoLogin {
+    margin-left: 30px;
+    height: 100%;
+  }
+  .mensagemLogin {
+    display: block;
+    margin-top: 30px;
+  }
+  .mensagemLogin h2 { 
+    font-size: 35px;
+  }
+  .mensagemLogin p { 
+    font-size: medium;
+    margin-top: -20px;
+  }
+  .formulario {
+    margin-top: 30px;
+    margin-right: 35px;
+    height: 50%;
+  }
+  .formulario label {
+    font-size: 20px;
+  }
+  .formulario input {
+    margin-top: 15px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 50;
+    width: 100%;
+    border: solid 1px #333
+  }
+
+  .formulario input:hover {
+    transition: 200ms;
+    background-color: #F6F6F6;
+  }
+  .botoes {
+    display: flex;
+    justify-content: center;
+  }
+  .botoes button {
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    margin-right: 35px;
+    border-radius: 10px;
+    font-size: large;
+    border: solid 1px #333;
+    background-color: #f6f6f6;
+  }
+  .botoes button:hover {
+    transition: 200ms;
+    background-color: #e0e0e0;
+  }
+  .mensagemFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;     
+    gap: 8px;               
+  }
+
+  .mensagemFooter p {
+    margin: 0;
+  }
+  .mensagemFooter a {
+    text-decoration: none;
+    transition: text-decoration 0.3s ease-in-out;
+  }
+
+  .mensagemFooter a:hover {
+    text-decoration: underline;
+  }

@@ -16,7 +16,7 @@ function slugSemOSlug(texto) {
 
 async function conteudoArquivo() {
     // Função para obter o conteúdo do arquivo HTML do template dos usuarios
-    const caminhoArquivo = 'http://45.239.246.197:10100/assets/templateUsuarios.html';
+    const caminhoArquivo = 'http://45.239.246.197:10101/assets/templateUsuarios.html';
     try {
         const response = await fetch(caminhoArquivo);
         if (!response.ok) {
@@ -52,7 +52,7 @@ async function gerarDocHTML(perfil) {
 // Função para verificar se a pagina do perfil já existe
 async function paginaExiste(nomePerfil) {
     try {
-        const resposta = await fetch(`http://45.239.246.197:10100/Usuarios/${nomePerfil}`);
+        const resposta = await fetch(`http://45.239.246.197:10101/Usuarios/${nomePerfil}.html`);
         return resposta.ok;
     } catch (error) {
         console.error('Erro ao verificar a existência da página:', error);

@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <title>Registro CNC</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"                      content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilosMinhaCNCMobile.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="estilosMinhaCNC.css" media="screen and (min-width: 768px)">
-    <script src="/scripts/trocarlinguagem.js" nonce="batatinha"></script>
-    <script src="/scripts/registros.js" nonce="batatinha"></script>
-    <script src="/scripts/verificacaoLogin.js" nonce="batatinha"></script>
-    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
-    <script src="/scripts/verificacaoCNC.js" nonce="batatinha"></script>
+    <link rel="stylesheet" href="estilosMinhaCNC.css"       media="screen and (min-width: 768px)">
+    <script src="/scripts/trocarlinguagem.js"  nonce="batatinha" defer></script>
+    <script src="/scripts/registros.js"        nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
+    <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoCNC.js"   nonce="batatinha" defer></script>
+    <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
 </head>
 <body>
     <header class="navegacao">
         <ul>
             <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
-            <li><a class="Home" href="index.html">Home</a></li>
-            <li><a class="Projetos" href="projetos.html">Projetos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a class="FAQs" href="registroCNC.html">FAQs</a></li>
+            <li><a class="Home"     href="index.html"       >Home      </a></li>
+            <li><a class="Projetos" href="projetos.html"    >Projetos  </a></li>
+            <li><a                  href="sobre.html"       >Sobre     </a></li>
+            <li><a class="FAQs"     href="registroCNC.html" >Minha CNC </a></li>
         </ul>
         <ul class="ElementosDireita">
-            <li><a class="Login" href="login.html">Login</a></li>
+            <li><a class="Login"    href="login.html"   >Login       </a></li>
             <li><a class="Registro" href="registro.html">Registrar-se</a></li>
-            <li id="secaoUsuario" style="display: none;">
-                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
-                <span id="nomeUsuarioBarra"></span>
-            </li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario" style="display: none;">
+                    <img  id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
+            </button>
+                 <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/public/configuracoes.html">Configurações</button></li>
+                    <li><button id="sairPerfil" >Sair  </button></li>
+                </ul> 
+            </li> 
         </ul>
     </header>
     <div class="conteudo">

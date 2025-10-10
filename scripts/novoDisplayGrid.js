@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
+    const usuario = document.getElementById('nomeUsuarioBanner')?.textContent || null;
     const lista = document.querySelector(".gridLista");
+    const externo = !window.location.pathname.endsWith('/public/projetos.html');
+
     lista.innerHTML = '<div class="loading">Carregando projetos...</div>';
 
     try {
@@ -13,7 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({}),
+
+            body: JSON.stringify({usuario, externo}),
             signal: controller.signal
         });
 

@@ -2,44 +2,44 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Projetos | CTRL</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-batatinha' 'unsafe-inline';">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"                      content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estiloProjetosMobile.css" media="screen and (max-width: 767px)">
-    <link rel="stylesheet" href="estiloProjetos.css" media="screen and (min-width: 768px)">
-    <title>Projetos | CTRL</title>
-    <script src="/scripts/projetos.js" nonce="batatinha" defer></script>
+    <link rel="stylesheet" href="estiloProjetos.css"       media="screen and (min-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="/scripts/projetos.js"         nonce="batatinha" defer></script>
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
-    <script src="/scripts/perfil.js" nonce="batatinha" defer></script>
-    <script src="/scripts/novoDisplayGrid.js" nonce="batatinha" defer></script>
-    <script src="/scripts/dropdownBarra.js" nonce="batatinha" defer></script>
+    <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
+    <script src="/scripts/novoDisplayGrid.js"  nonce="batatinha" defer></script>
+    <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
 </head>
 <body>
     <header class="navegacao">
-    <ul>
-        <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
-        <li><a class="Home" href="index.html">Home</a></li>
-        <li><a class="Projetos" href="projetos.html">Projetos</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a class="FAQs" href="registroCNC.html">Minha CNC</a></li>
-    </ul>
-    <ul class="ElementosDireita">
-        <li><a class="Login" href="login.html">Login</a></li>
-        <li><a class="Registro" href="registro.html">Registrar-se</a></li>
-        <li class="menuUsuario">
-            <button id="secaoUsuario">
-                <img id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
-                <span id="nomeUsuarioBarra">Nome do Usuário</span>
+        <ul>
+            <li><img width="40" height="40" src="/assets/window.png" alt="Logo provisória"></li>
+            <li><a class="Home"     href="index.html"       >Home      </a></li>
+            <li><a class="Projetos" href="projetos.html"    >Projetos  </a></li>
+            <li><a                  href="sobre.html"       >Sobre     </a></li>
+            <li><a class="FAQs"     href="registroCNC.html" >Minha CNC </a></li>
+        </ul>
+        <ul class="ElementosDireita">
+            <li><a class="Login"    href="login.html"   >Login       </a></li>
+            <li><a class="Registro" href="registro.html">Registrar-se</a></li>
+            <li class="menuUsuario">
+                <button id="secaoUsuario" style="display: none;">
+                    <img  id="fotoPerfil" width="40" height="40" src="/assets/usuarioPadrao.png" alt="Foto de Perfil">
+                    <span id="nomeUsuarioBarra">Nome do Usuário</span>
             </button>
-            <ul id="Dropdown">
-                <li><button id="nomePerfil" >Perfil</button></li>
-                <li><button id="configuracoesPerfil" data-url="/public/configuracoes.html">Configurações</button></li>
-                <li><button id="sairPerfil">Sair</button></li>
-            </ul> 
-        </li>
-    </ul>
+                 <ul id="Dropdown">
+                    <li><button id="nomePerfil" >Perfil</button></li>
+                    <li><button id="configuracoesPerfil" data-url="/public/configuracoes.html">Configurações</button></li>
+                    <li><button id="sairPerfil" >Sair  </button></li>
+                </ul> 
+            </li> 
+        </ul>
     </header>
     <div class="conteudo">
         <div class="colunaEsquerda">
