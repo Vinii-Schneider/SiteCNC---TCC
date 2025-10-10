@@ -47,6 +47,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
 
         try {
+            console.log(`Verificando ID: ${ID} para o usuário: ${usuario.nomeUsuario}`);
             const res = await fetch(`http://45.239.246.197:10100/verificaID/${ID}`);
             const data = await res.json();
 

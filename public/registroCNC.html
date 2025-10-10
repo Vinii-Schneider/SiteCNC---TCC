@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="estilosRegistroCNC.css"       media="screen and (min-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="/scripts/trocarlinguagem.js"  nonce="batatinha" defer></script>
-    <script src="/scripts/registros.js"        nonce="batatinha" defer></script>
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
     <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
@@ -57,16 +55,17 @@
                             <p>Adicione aqui sua máquina ao seu portfólio</p>
                         </div>
                         <div class="formulario">           
-                            <label class="jonas" for="nomeUsuario">ID fornecido pela máquina: </label>
-                            <input type="text" id="nomeUsuario"><br></br>
-                            <div id="mensagemErro" style="color: red; display: none; margin-top: -9px;"></div>                       
+                            <label for="ID">ID fornecido pela máquina: </label>
+                            <input type="text" id="ID"><br></br>
+                            <div class="avisoDiv" id="avisoID" style="color: red; margin-top: -9px;"></div>    
+                            <div class="teste2" style="display:none;"></div>                   
                         </div>
                         <div class="mensagemFooter">
                            <p>Já possui alguma máquina registrada?</p><a href="minhaCNC.html">Clique aqui</a> 
                         </div>
                         
                         <div class="botoes">
-                            <button type="button" id="botaoLogin">Prosseguir</button>
+                            <button type="button" id="Verificar">Registrar</button>
                         </div>
                     </div>
                 </div>
