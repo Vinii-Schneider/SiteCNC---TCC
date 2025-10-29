@@ -13,7 +13,8 @@
     <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
-    <script src="/scripts/projetos.js"         nonce="batatinha" defer></script>
+    <script src="/scripts/configuracoes.js"    nonce="batatinha" defer></script>
+
 </head>
 <body>
     <header class="navegacao">
@@ -45,10 +46,10 @@
             <div class="colunaEsquerda">
                 <div class="elementosColuna">
                     <h1 style="margin-top: 20px; margin-bottom: 60px; width: 100%;">Configurações</h1>
-                    <li><button onclick="mostrarPerfilPublico()" style="border:none; font-size: 21px;" nonce="batatinha">Perfil público</button></li>
-                    <li><button onclick="mostrarPreferencias()" style="border:none; font-size: 21px;" nonce="batatinha">Preferências</button></li>
-                    <li><button onclick="mostrarSegurancaLogin()" style="border:none; font-size: 21px;" nonce="batatinha">Segurança & login</button></li>
-                    <li><button onclick="mostrarInformacoesGerais()" style="border:none; font-size: 21px;" nonce="batatinha">Informações gerais</button></li>
+                    <li><button id="botaoPerfil" onclick="mostrarPerfilPublico()" style="border:none; font-size: 21px;" nonce="batatinha">Perfil público</button></li>
+                    <li><button id="botaoPreferencias" onclick="mostrarPreferencias()" style="border:none; font-size: 21px;" nonce="batatinha">Preferências</button></li>
+                    <li><button id="botaoSeguranca" onclick="mostrarSegurancaLogin()" style="border:none; font-size: 21px;" nonce="batatinha">Segurança & login</button></li>
+                    <li><button id="botaoInfoGeral" onclick="mostrarInformacoesGerais()" style="border:none; font-size: 21px;" nonce="batatinha">Informações gerais</button></li>
                     <li></li>
                 </div>
             </div>

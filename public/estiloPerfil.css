@@ -254,3 +254,6 @@ body {
   border-radius: 10px;
   height: 250px;
 }
+.projeto-item img {
+  width: 100%;
+}

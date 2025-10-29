@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const controller = new AbortController();
 
-        const response = await fetch("http://45.239.246.197:10100/projetos", {
+        const resposta = await fetch("http://45.239.246.197:10100/projetos", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,16 +21,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             signal: controller.signal
         });
 
-        if (!response.ok) {
-            throw new Error(`Erro HTTP: ${response.status}`);
+        if (!resposta.ok) {
+            throw new Error(`Erro HTTP: ${resposta.status}`);
         }
 
-        const contentType = response.headers.get('content-type');
+        const contentType = resposta.headers.get('content-type');
         if (!contentType || !contentType.includes('application/json')) {
             throw new Error('Resposta não é JSON');
         }
 
-        const projetos = await response.json();
+        const projetos = await resposta.json();
         console.log('Projetos recebidos:', projetos);
 
         lista.innerHTML = '';

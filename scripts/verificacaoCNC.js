@@ -56,7 +56,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 avisoDiv.style.color = 'green';
 
                 const nomeUsuario = usuario?.nomeUsuario ?? 'desconhecido';
-                alert(`ID verificado com sucesso! Será que você é mesmo ${nomeUsuario}?`);
 
                 const resposta = await fetch(`http://45.239.246.197:10100/associarID`, {
                     method: 'POST',

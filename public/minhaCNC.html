@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="estilosMinhaCNC.css"       media="screen and (min-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="/scripts/registros.js"        nonce="batatinha" defer></script>
-    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
+    <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/verificacaoCNC.js"   nonce="batatinha" defer></script>
+    <script src="/scripts/displayCNC.js"       nonce="batatinha" defer></script>
     <script src="/scripts/perfil.js"           nonce="batatinha" defer></script>
 </head>
 <body>
@@ -44,14 +44,7 @@
     <div class="conteudo">
         <div class="wrapperPrincipal">
             <div class="teste2">
-                <!-- Ficará escondido caso haja uma CNC já registrada -->
-                <h1>Registre sua CNC</h1>
-                <form id="formRegistroCNC" enctype="multipart/form-data">
-                    <label for="ID">ID da sua CNC: </label>
-                    <input type="text" id="ID" name="Tituloo"><br><br>                                    
-                    <button type="button" id="Verificar">Verificar</button>
-                </form>
-                <div id="avisoID" style="margin-top:10px; font-weight:bold;"></div>
+
             </div>
             <div class="wrapperPrincipalCNC">
                 <div class="gridCNC">
@@ -66,38 +59,47 @@
 </html>
 <script nonce="batatinha" defer>
 window.addEventListener('DOMContentLoaded', async () => {
-    // Pega o usuário logado
     const usuario = verificarLogin();
     if (!usuario) return;
 
     const gridLista = document.querySelector('.gridListaCNC');
-    if (!gridLista) return;
 
     try {
-        // Faz fetch no seu endpoint POST que retorna CNCs do usuário
         const res = await fetch('http://45.239.246.197:10100/listagemCNC', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ usuario: usuario.nomeUsuario })
         });
 
-        const cncList = await res.json();
+        const responseData = await res.json();
+        
+        console.log('Resposta da API:', responseData);
 
-        if (cncList.length === 0) {
-            gridLista.innerHTML = '<li>Você ainda não possui CNCs registradas.</li>';
+        // Limpa a lista
+        gridLista.innerHTML = '';
+
+        if (!responseData.temCNC) {
+            gridLista.innerHTML = '<li class="no-cnc">Você ainda não possui CNCs registradas.</li>';
             return;
         }
 
-        // Preenche a lista
-        cncList.forEach(cnc => {
-            const li = document.createElement('li');
-            li.textContent = `ID: ${cnc.id} | Status: ${cnc.status} | Versão: ${cnc.versao}`;
-            gridLista.appendChild(li);
-        });
+        // Cria o elemento da CNC
+        const li = document.createElement('li');
+        li.className = 'cnc-item';
+        li.innerHTML = `
+            <div class="cnc-info">
+                <strong>Máquina ID:</strong> ${responseData.maquina_id}
+            </div>
+            <div class="cnc-status">
+                <span class="status-badge">Ativa</span>
+            </div>
+        `;
+        
+        gridLista.appendChild(li);
 
     } catch (err) {
         console.error('Erro ao buscar CNCs do usuário:', err);
-        gridLista.innerHTML = '<li>Erro ao carregar CNCs.</li>';
+        gridLista.innerHTML = '<li class="error">Erro ao carregar CNCs.</li>';
     }
 });
 </script>
