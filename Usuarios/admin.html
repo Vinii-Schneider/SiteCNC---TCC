@@ -14,7 +14,7 @@
     <script src="/scripts/verificacaoLogin.js" nonce="batatinha" defer></script>
     <script src="/scripts/dropdownBarra.js"    nonce="batatinha" defer></script>
     <script src="/scripts/novoDisplayGrid.js"  nonce="batatinha" defer></script>
-</head>
+    <script src="/scripts/trocaFotoPerfil.js"  nonce="batatinha" defer></script>
 <body>
     <header class="navegacao">
         <ul>
@@ -51,8 +51,11 @@
                 </ul>
             </div>
             <div class="paginaMain">
-                <div class="banner"><img src="/assets/maxwell.jpg" style="width: 1000px; height: 200px; object-fit: fill;"></div>
+                <div class="banner"><img src="/assets/maxwell.jpg" style="width: 100%; height: 200px; object-fit: fill;"></div>
                 <img src="/assets/usuarioPadrao.png" height="130px" alt="Imagem de perfil"id="imagemPerfil"><h1 id="nomeUsuarioBanner" style="margin-top: -55px; margin-left: 180px;"></h1>
+
+                <input type="file" id="uploadFoto" accept="image/*" style="display: none;">
+
                 <div class="forms">
                     <h1 id="projetosUser" style="margin-top: 80px;">Projetos de </h1>
                 </div>
@@ -73,13 +76,52 @@
             document.getElementById('Forms').innerHTML = '<p>Conteúdo de Segurança & Login</p>';
         }
     </script>
-        <script nonce="batatinha" defer>
-            const url = window.location.href;
-            const partesURL = window.location.href.split('/');
-            let nomeUsuario = partesURL[partesURL.length - 1].replace('.html', '');
-            nomeUsuario = nomeUsuario.charAt(0).toUpperCase() + nomeUsuario.slice(1).toLowerCase();
-            document.getElementById('nomeUsuarioBanner').innerText += nomeUsuario;
-            document.getElementById('projetosUser').textContent += `${nomeUsuario}:`;
-    </script>
+    <script nonce="batatinha" defer>
+        const partesURL = window.location.href.split('/');
+        let nomeUsuario = partesURL[partesURL.length - 1].replace('.html', '');
+        nomeUsuario = nomeUsuario.charAt(0).toUpperCase() + nomeUsuario.slice(1).toLowerCase();
+
+        document.getElementById('nomeUsuarioBanner').innerText = nomeUsuario;
+        document.getElementById('projetosUser').textContent = `${nomeUsuario}:`;
+
+        const imagemPerfil = document.getElementById('imagemPerfil');
+        const uploadInput = document.getElementById('uploadFoto');
+
+        imagemPerfil.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', async (event) => {
+            const arquivo = event.target.files[0];
+            if (!arquivo) return;
+
+            const urlTemp = URL.createObjectURL(arquivo);
+            imagemPerfil.src = urlTemp;
+
+            const formData = new FormData();
+            formData.append('fotoPerfil', arquivo); 
+            formData.append('nomeUsuario', nomeUsuario);
+
+            try {
+                const resposta = await fetch('http://45.239.246.197:10100/atualizarFotoPerfil', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const resultado = await resposta.json();
+
+                if (resposta.ok) {
+                    console.log('Foto atualizada com sucesso:', resultado.nomeImagem);
+                } else {
+                    console.error('Erro:', resultado.error);
+                    alert('Erro ao atualizar foto de perfil.');
+                }
+            } catch (erro) {
+                console.error('Erro na requisição:', erro);
+                alert('Erro ao conectar ao servidor.');
+            }
+        });
+</script>
+
 </body>
 </html>
