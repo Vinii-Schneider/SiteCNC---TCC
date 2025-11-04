@@ -100,8 +100,19 @@
         <div class="wrapperPaginaInicio">
             <div class="paginaInicio">
                 <div class="textoInicio">
-                    <h2>Lorem Ipsum</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h1>Grade de Projetos</h1>
+                    <p>Bem-vindo à área de projetos.</p>
+                    <p>Nesta seção, você pode enviar seus próprios projetos e explorar os mais recentes criados por outros usuários.</p>
+                    <p>Compartilhe suas ideias, aprenda com os outros e acompanhe a evolução da comunidade.</p>
+                </div>
+                <div class="informacoesProjetos">
+                    <a>Projetos enviados:       </a>
+                    <a>Usuários registrados:    </a>
+                    <a>Carga do servidor:       </a>
+                    <a>Armazenamento disponível:</a>
+                    <a>RAM disponivel           </a>
+                    <a>Uptime:                  </a>
+                    
                 </div>
             </div>
         </div>
@@ -127,5 +138,30 @@
     <footer>
 
     </footer>
+    <script nonce="batatinha">
+    const infoProjetos = document.querySelector('.informacoesProjetos');
+
+    function atualizarInfo() {
+        fetch('http://45.239.246.197:10100/infoServer')
+            .then(response => response.json())
+            .then(dados => {
+                infoProjetos.innerHTML = `
+                    <a><strong>Projetos enviados:</strong>        <span>${dados.projetosEnviados   }</span></a>
+                    <a><strong>Usuários registrados:</strong>     <span>${dados.usuariosRegistrados}</span></a>
+                    <a><strong>Carga do servidor:</strong>        <span>${dados.uso_cpu            }</span></a>
+                    <a><strong>Armazenamento disponível:</strong> <span>${dados.armazenamento      }</span></a>
+                    <a><strong>RAM disponível:</strong>           <span>${dados.memoria            }</span></a>
+                    <a><strong>Uptime:</strong>                   <span>${dados.uptime             }</span></a>
+                `;
+            })
+            .catch(error => {
+                console.error('Erro ao obter informações do sistema:', error);
+            });
+    }
+
+    atualizarInfo();
+    setInterval(atualizarInfo, 3000);
+</script>
+
 </body>
 </html>

@@ -119,7 +119,7 @@
   }
   .colunaEsquerda {
     width: 170px;
-    background-color: #B3B3B3;
+    background-color: #0c1549;
     padding: 0;
     outline: 1px solid #333;
     overflow-x: hidden;
@@ -129,17 +129,19 @@
   }
   .conteudosColuna p {
     margin: 0;
-    height: 100%
+    height: 100%;
   }
   .conteudosColuna a {
     font-family: 'Roboto', sans-serif;
+    font-weight: normal;
     text-decoration: none;
     display: block;
-    color: #333;
+    color: #ddd;
     padding: 5px;
     width: 100%;
     height: 100%;
     grid-row: 1 / span 3;
+    margin-bottom: 10px;
   }
   .conteudosColuna {
     margin-top: 5px;
@@ -155,6 +157,25 @@
     outline: 1px solid #333;
     height: 200px;
     position: relative;
+  }
+  .paginaInicio {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;       
+    gap: 40px;                      
+  }
+  .informacoesProjetos {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+  }
+  .informacoesProjetos a {
+    margin-bottom: 5px;
   }
   .upload {
     display: flex;
