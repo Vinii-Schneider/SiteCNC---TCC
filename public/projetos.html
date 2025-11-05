@@ -106,12 +106,13 @@
                     <p>Compartilhe suas ideias, aprenda com os outros e acompanhe a evolução da comunidade.</p>
                 </div>
                 <div class="informacoesProjetos">
-                    <a>Projetos enviados:       </a>
-                    <a>Usuários registrados:    </a>
-                    <a>Carga do servidor:       </a>
-                    <a>Armazenamento disponível:</a>
-                    <a>RAM disponivel           </a>
-                    <a>Uptime:                  </a>
+                    <a><strong>Projetos enviados:</strong>       </a>
+                    <a><strong>Usuários registrados:</strong>    </a>
+                    <a><strong>Carga do servidor:</strong>       </a>
+                    <a><strong>RAM disponível:</strong>          </a>
+                    <a><strong>Armazenamento disp:</strong>      </a>
+                    <a><strong>Rede I/O:</strong>                </a>
+                    <a><strong>Uptime:</strong>                  </a>
                     
                 </div>
             </div>
@@ -164,7 +165,7 @@
                     <a><strong>Carga do servidor:</strong>        <span>${dados.uso_cpu                    }</span></a>
                     <a><strong>RAM disponível:</strong>           <span>${dados.memoria                    }</span></a>
                     <a><strong>Armazenamento disp:</strong>       <span>${dados.armazenamento              }</span></a>
-                    <a><strong>Rede:</strong>                     <span>${dados.rede_in} | ${dados.rede_out}</span></a>
+                    <a><strong>Rede I/O:</strong>                 <span>${dados.rede_in} | ${dados.rede_out}</span></a>
                     <a><strong>Uptime:</strong>                   <span>${dados.uptime                     }</span></a>
                 `;
             })
@@ -177,7 +178,7 @@
     
 
     atualizarInfo();
-    setInterval(atualizarInfo, 3000);
+    setInterval(atualizarInfo, 1000);
 </script>
 
 </body>

@@ -195,7 +195,12 @@ body {
   transition: filter 300ms ease;
   position: relative;
   z-index: 1;
+  height: 130px;
+  width: 130px;
+  object-fit: cover;      
+  object-position: center; 
 }
+
 #imagemPerfil:hover {
   filter: brightness(75%);
   cursor: pointer;
