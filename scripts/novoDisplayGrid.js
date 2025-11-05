@@ -44,12 +44,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const item = document.createElement('li');
             item.className = 'projeto-item';
             
-            // Criar link
             const link = document.createElement('a');
             link.href = `/ProjetosSubmetidos/${projeto.uuid}.html`;
             link.className = 'projeto-link';
-            
-            // Criar imagem com fallback
+
             const img = document.createElement('img');
             img.src = `/ImagensProjetos/${projeto.src_imagem}`;
             img.alt = projeto.nome_projeto || 'Projeto sem título';
@@ -58,12 +56,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 this.src = '/assets/padrao1.jpg';
             };
             
-            // Criar título
             const titulo = document.createElement('span');
             titulo.className = 'projeto-titulo';
             titulo.textContent = projeto.nome_projeto || 'Sem título';
             
-            // Montar estrutura
             link.appendChild(img);
             link.appendChild(titulo);
             item.appendChild(link);
