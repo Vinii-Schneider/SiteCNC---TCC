@@ -131,7 +131,20 @@
         </div>
         <div class="ListaProjetos">
             <div class="conteudosLista">
-                <h1>Projetos recentes: </h1>
+                <div class="tituloListaProjetos">
+                    <h1>Projetos recentes: </h1>
+                    <input type="text" id="campoPesquisa" class="campoPesquisa" placeholder="Pesquisar projetos...">
+                    <button id="consulta" class="botaoConsulta">
+                        <img id="iconeConsulta" src="/assets/pesquisa.png" alt="Consultar projetos específicos" style="width: 30px; height: 30px;">
+                    </button>
+                    <button id="vistaGrid" class="botaoGrid">
+                        <img id="iconeGrid" src="/assets/menuGrid.png" alt="Alterar modo de exibição" style="width: 30px; height: 30px;">
+                    </button>
+                    <button id="vistaLista" class="botaoLista">
+                        <img id="iconeLista" src="/assets/menuLista.png" alt="Alternar modo de exibição" style="width: 30px; height: 30px;">
+                    </button>
+                </div>
+                
                 <ul class="gridLista"></ul>
             </div>
         </div>
@@ -146,18 +159,22 @@
             .then(response => response.json())
             .then(dados => {
                 infoProjetos.innerHTML = `
-                    <a><strong>Projetos enviados:</strong>        <span>${dados.projetosEnviados   }</span></a>
-                    <a><strong>Usuários registrados:</strong>     <span>${dados.usuariosRegistrados}</span></a>
-                    <a><strong>Carga do servidor:</strong>        <span>${dados.uso_cpu            }</span></a>
-                    <a><strong>RAM disponível:</strong>           <span>${dados.memoria            }</span></a>
-                    <a><strong>Armazenamento disp:</strong>       <span>${dados.armazenamento      }</span></a>
-                    <a><strong>Uptime:</strong>                   <span>${dados.uptime             }</span></a>
+                    <a><strong>Projetos enviados:</strong>        <span>${dados.projetosEnviados           }</span></a>
+                    <a><strong>Usuários registrados:</strong>     <span>${dados.usuariosRegistrados        }</span></a>
+                    <a><strong>Carga do servidor:</strong>        <span>${dados.uso_cpu                    }</span></a>
+                    <a><strong>RAM disponível:</strong>           <span>${dados.memoria                    }</span></a>
+                    <a><strong>Armazenamento disp:</strong>       <span>${dados.armazenamento              }</span></a>
+                    <a><strong>Rede:</strong>                     <span>${dados.rede_in} | ${dados.rede_out}</span></a>
+                    <a><strong>Uptime:</strong>                   <span>${dados.uptime                     }</span></a>
                 `;
             })
             .catch(error => {
                 console.error('Erro ao obter informações do sistema:', error);
             });
     }
+
+
+    
 
     atualizarInfo();
     setInterval(atualizarInfo, 3000);

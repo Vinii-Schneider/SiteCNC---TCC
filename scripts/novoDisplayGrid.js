@@ -81,4 +81,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         `;
     }
+
+    const botaoGrid     =  document.getElementById('vistaGrid');
+    const botaoLista    = document.getElementById('vistaLista');
+    const listaProjetos = document.querySelector('.gridLista');
+
+    botaoGrid.addEventListener('click', () => {
+    listaProjetos.classList.remove('lista');
+    localStorage.setItem('modoExibicao', 'grid');
+    });
+
+    botaoLista.addEventListener('click', () => {
+    listaProjetos.classList.add('lista');
+    localStorage.setItem('modoExibicao', 'lista');
+    });
+
+    const modoSalvo = localStorage.getItem('modoExibicao');
+    if (modoSalvo === 'lista') listaProjetos.classList.add('lista');
+
 });
