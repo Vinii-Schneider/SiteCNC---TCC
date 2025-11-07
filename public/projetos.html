@@ -136,13 +136,13 @@
                     <h1>Projetos recentes: </h1>
                     <input type="text" id="campoPesquisa" class="campoPesquisa" placeholder="Pesquisar projetos...">
                     <button id="consulta" class="botaoConsulta">
-                        <img id="iconeConsulta" src="/assets/pesquisa.png" alt="Consultar projetos específicos" style="width: 30px; height: 30px;">
+                        <img id="iconeConsulta" src="/assets/pesquisa.png"  alt="Consultar projetos específicos" style="width: 30px; height: 30px;">
                     </button>
                     <button id="vistaGrid" class="botaoGrid">
-                        <img id="iconeGrid" src="/assets/menuGrid.png" alt="Alterar modo de exibição" style="width: 30px; height: 30px;">
+                        <img id="iconeGrid"     src="/assets/menuGrid.png"  alt="Alterar modo de exibição"       style="width: 30px; height: 30px;">
                     </button>
                     <button id="vistaLista" class="botaoLista">
-                        <img id="iconeLista" src="/assets/menuLista.png" alt="Alternar modo de exibição" style="width: 30px; height: 30px;">
+                        <img id="iconeLista"    src="/assets/menuLista.png" alt="Alternar modo de exibição"      style="width: 30px; height: 30px;">
                     </button>
                 </div>
                 
@@ -153,33 +153,114 @@
 
     </footer>
     <script nonce="batatinha">
-    const infoProjetos = document.querySelector('.informacoesProjetos');
+        const infoProjetos = document.querySelector('.informacoesProjetos');
 
-    function atualizarInfo() {
-        fetch('http://45.239.246.197:10100/infoServer')
-            .then(response => response.json())
-            .then(dados => {
+        async function atualizarInfo() {
+            try {
+                const resposta = await fetch('http://45.239.246.197:10100/infoServer');
+                const dados = await resposta.json();
+
                 infoProjetos.innerHTML = `
-                    <a><strong>Projetos enviados:</strong>        <span>${dados.projetosEnviados           }</span></a>
-                    <a><strong>Usuários registrados:</strong>     <span>${dados.usuariosRegistrados        }</span></a>
-                    <a><strong>Carga do servidor:</strong>        <span>${dados.uso_cpu                    }</span></a>
-                    <a><strong>RAM disponível:</strong>           <span>${dados.memoria                    }</span></a>
-                    <a><strong>Armazenamento disp:</strong>       <span>${dados.armazenamento              }</span></a>
-                    <a><strong>Rede I/O:</strong>                 <span>${dados.rede_in} | ${dados.rede_out}</span></a>
-                    <a><strong>Uptime:</strong>                   <span>${dados.uptime                     }</span></a>
+                    <a><strong>Projetos enviados:   </strong> <span>${dados.projetosEnviados}            </span></a>
+                    <a><strong>Usuários registrados:</strong> <span>${dados.usuariosRegistrados}         </span></a>
+                    <a><strong>Carga do servidor:   </strong> <span>${dados.uso_cpu}                     </span></a>
+                    <a><strong>RAM disponível:      </strong> <span>${dados.memoria}                     </span></a>
+                    <a><strong>Armazenamento disp:  </strong> <span>${dados.armazenamento}               </span></a>
+                    <a><strong>Rede I/O:            </strong> <span>${dados.rede_in} | ${dados.rede_out} </span></a>
+                    <a><strong>Uptime:              </strong> <span>${dados.uptime}                      </span></a>
                 `;
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Erro ao obter informações do sistema:', error);
+            }
+        }
+
+        atualizarInfo();
+        setInterval(atualizarInfo, 1000);
+    </script>
+    <script nonce="batatinha" defer>
+
+        const campoPesquisa = document.getElementById('campoPesquisa');
+        const containerProjetos = document.querySelector('.gridLista');
+        let buscaTimeout = null;
+
+        async function carregarProjetosPadrao() {
+            try {
+                const usuario = document.getElementById('nomeUsuarioBanner')?.textContent || null;
+                const externo = !window.location.pathname.endsWith('/public/projetos.html');
+
+                const res = await fetch("http://45.239.246.197:10100/projetos", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ usuario, externo })
+                });
+
+                if (!res.ok) throw new Error('Erro HTTP ' + res.status);
+                const projetos = await res.json();
+                renderizarProjetos(projetos);
+            } catch (err) {
+                console.error('Erro ao carregar projetos padrão:', err);
+                containerProjetos.innerHTML = '<li><p>Erro ao carregar projetos.</p></li>';
+            }
+        }
+
+        function renderizarProjetos(lista) {
+            containerProjetos.innerHTML = '';
+
+            if (!lista || lista.length === 0) {
+                containerProjetos.innerHTML = '<li><p>Nenhum projeto encontrado.</p></li>';
+                return;
+            }
+
+            lista.forEach(projeto => {
+                const li = document.createElement('li');
+                li.classList.add('projeto-item');
+                li.innerHTML = `
+                    <div class="projeto-thumb">
+                        <img src="/ImagensProjetos/${projeto.src_imagem}" alt="${projeto.nome_projeto}">
+                    </div>
+                    <div class="projeto-info">
+                        <a style="font-weight: bold;" href="/ProjetosSubmetidos/${projeto.uuid}.html" class="nomeProjeto">${projeto.nome_projeto}</a>
+                    </div>
+                `;
+                containerProjetos.appendChild(li);
             });
-    }
+        }
+
+        async function buscarProjetos(termo) {
+            try {
+                const resposta = await fetch(`http://45.239.246.197:10100/buscaProjeto/${encodeURIComponent(termo)}`);
+                if (!resposta.ok) throw new Error('Erro HTTP ' + resposta.status);
+                const dados = await resposta.json();
+
+                if (dados.encontrado && dados.projetos.length > 0) {
+                    renderizarProjetos(dados.projetos);
+                } else {
+                    containerProjetos.innerHTML = '<li><p>Nenhum projeto encontrado.</p></li>';
+                }
+            } catch (err) {
+                console.error('Erro na busca:', err);
+                containerProjetos.innerHTML = '<li><p>Erro ao buscar projetos.</p></li>';
+            }
+        }
+
+        campoPesquisa.addEventListener('input', () => {
+            const termo = campoPesquisa.value.trim();
+            clearTimeout(buscaTimeout);
+
+            buscaTimeout = setTimeout(() => {
+                if (termo === '') {
+                    carregarProjetosPadrao(); 
+                } else {
+                    buscarProjetos(termo);
+                }
+            }, 300);
+        });
+
+        document.addEventListener('DOMContentLoaded', carregarProjetosPadrao);
+    </script>
 
 
-    
 
-    atualizarInfo();
-    setInterval(atualizarInfo, 1000);
-</script>
 
 </body>
 </html>
