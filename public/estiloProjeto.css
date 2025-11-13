@@ -135,6 +135,12 @@
     font-size: 60px;
   }
 
+  .textoInicio p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
   .texto {
     grid-area: texto;
     padding: 20px;
