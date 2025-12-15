@@ -125,7 +125,7 @@ body {
 
 .wrapperPaginaInicio {
   margin-top: 55px; 
-  height: calc(100vh - 55px);
+  height: calc(100vh - 54px);
 }
  
 .conteudoInicio {
